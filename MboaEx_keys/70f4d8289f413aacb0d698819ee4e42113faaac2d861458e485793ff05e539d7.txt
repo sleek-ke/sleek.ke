@@ -1,0 +1,2 @@
+Private key: 70f4d8289f413aacb0d698819ee4e42113faaac2d861458e485793ff05e539d7
+Wallet address / Public key: /yKjCpjvvYZv7ub7fu2jLskrubBdgTUTrvCQUvv/LY47HSu1Pfsbm3nOvmux+Vz/aABjCo55suKWVEhAzoDrSw==

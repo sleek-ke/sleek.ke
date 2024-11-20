@@ -1,0 +1,36 @@
+{% load static %}
+
+      <div style="width:100%;margin-bottom:20px; margin-right: 10px; height:50vh;" class="bty">
+
+<header style="height:2vh;  box-shadow: 10px 0px 34px 50px #fff;background-color:#fff;"> </header>
+{% if request.user.is_authenticated %}
+<form action="{% url 'stk' %}" method="POST" >
+                                                             {% csrf_token %}
+                                                             <input type="text" id="phone_number"  hidden  readonly value="0{{user.address.postal_code}}" name="phone_number" placeholder="phone number" class="btn form-control" required autofocus    style="font-family:Comic Sans Mn;font-size:24px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; width:100%; "><br>
+                                                             <input type="number" id="amount" hidden  readonly value="{{ user.account.balance }}" required name="amount" class=" btn form-control" placeholder="Amount " style="font-family:Comic Sans Mn;font-size:24px;text-align:center; height:7vh;margin-top:20px; margin-bottom:70px;border-radius:10px; width:100%;">
+             <button style="border-radius:20px; padding:2px;margin-left:10%;margin-top:80vh;width:60%; " type="submit" class="btn btn-md my-0 p">
+              Buy |  <img style="width:50px; font-size:40%;  height:40px;"   src="{% static '/img/mpesa.png'%}">
+            </button>
+                   </form>
+
+
+ {% else %}
+            <div>
+                <a href="/Deposit" class="btn mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Buy  | <img style="width:50px; font-size:40%;  height:40px;"   src="{% static '/img/mpesa.png'%}">
+                </a></div>
+{% endif %}
+<form>
+    <div style="display:flex; flex-direction:row; margin-top:20px;">
+<div class="bty" style="background-color:#008800; width:85px;height:40px;margin-right:-20;">
+    <p>Ksh.</p>
+    </div>
+        <input   style="color: #001100;text-align:center; width:90%;height:40px;margin-right:40% background-color:transparent;" class="bty shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight border rounded-md border-gray-500 focus:outline-none focus:shadow-outline" name="amount" id="amount" type="number" required placeholder=" Enter Amount ">
+
+
+    </div></form><br>
+<p style="font-size:80%;">Mboa Coins to Receive...</p>
+
+             <div class="btn" style="border-radius:7px;width:100%;height:50px;text-align:center;">
+
+             </div>
+</div>

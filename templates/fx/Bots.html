@@ -1,0 +1,285 @@
+{% extends 'core/base.html' %}
+{% load  static %}
+{% block content %}
+         <section  style="background-color:rgba(0,0,0,0.2);
+        opacity:100%; backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id="home">
+            <div class="container" >
+                <div >
+<a href="/wallet" style="margin-top:-36vh;" >
+        <div  style="z-index:10;backdrop-filter:blur(10px); box-shadow:8px 5px 34px #001100;display:flex; flex-direction:row; ">
+             {% if request.user.is_authenticated %}
+                             <img class="img-fluid" style="margin-left:20px;width:50px; height:50px ; border-radius:100%; opacity:100%; margin-top:-11vh;" src=" {{user.address.profileimg.url}}"  alt="Profile Picture for {{ user.first_name }}">
+
+                    <p style=" font-width:bold; font-family:Comic Sans Mn; color:#599;margin-top:-11vh;margin-left:8px;"> Niaje, {{ user.first_name | capfirst}} ! <br> <b style="font-size:70%; font-family:Comic Sans Mn; color:#008800;">Mpesa| 0{{user.address.postal_code}} </b><br>
+<!--                    <b style="font-size:60%;"> {{ user.address.slug }}</b></p>-->
+                 {% endif %}
+               </div>
+</a>
+  </div>
+<!--                    <div style="width:20vw; height:25%;margin-top:20px;" class="dashboard-img">-->
+<!--  </div>-->
+                      <img class="img-fluid" style="z-index:10;width:100%; height:55vh ;opacity:10%; border-radius:26px;margin-top:-6vh;"   src="{{user.address.profileimg.url}}"  alt="Mboa Technologies | {{ user.first_name }}">
+
+
+
+                <div class="contact-info-item" style="margin-top:-25vh;margin-left:10%;">
+                        <div class="social-links">
+                           <a href="#" target="_blank"><i class="fab fa-google"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-microsoft"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-stripe"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-paypal"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-shopify"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-snapchat"></i></a>
+
+                        </div>
+
+                     </div>
+                        <div> <h3  class="bty" style="z-index:10;backdrop-filter:blur(10px);color:#f8f7f0;margin-left:55px;margin-top:-2vh;">Mboa Technologies</h3>   </div>
+                       <div class="BotScripts" style="backdrop-filter:blur(10px); background-color:#ffffff00;display: flex;margin-top:10px;overflow:hidden;">
+                            <div class="btn" style="  border:solid 2px rgba(255,255,255,0.2); background-color:#fff; border-radius:7px ;margin-left:2px; height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:200px  4px 200px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                              <div class="btn" style=" border:solid 2px rgba(255,255,255,0.2); box-shadow:200px  4px 200px #000; background-color:#f6f4f0; border-radius:7px ; margin-left:5px;height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:200px  4px 200px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                     </div>
+                <div style=" display:flex;flex-direction:row;">
+                          <div style=" display:flex;flex-direction:row; margin-bottom:20px; height:15vh; border-radius:10px; width:100%;" class="bty">
+    <h2  style=" color:#001100; border-radius:2px; padding-top:2vh;margin:2%;
+                        width:100% ; height:150px;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+                          Contact
+        Developer<br>
+        <strong style="font-size:50%"> Autonomy in everything... </strong><br>
+          </h2>
+         <div> <a href="/TestBot"><h3  class="bty" style="background-color:#000;color:#f8f7f0;box-shadow: 100px 2px 100px 50px lightblue; ">Request Demo</h3>  </a> </div>
+
+
+</div>
+                              </div>
+         {% include 'academy/JavaScript.html' %}
+        <div class="pt-advantage-figure-scene">
+                            <div class="pt-fallbox">
+                              <div   class="pt-fallbox-item -xl -v7">
+                                <span style="font-size:70%;">Government Bonds</span>
+                              </div>
+                              <div class="pt-fallbox-item -xl -v6">
+                                <span style="font-size:70%;">Mboa</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v5">
+                                <span style="font-size:70%;">Donate</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v8">
+                                <span style="font-size:70%;">Invest</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v9">
+                                <span style="font-size:70%;">{{user.first_name}}</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v10">
+                                <span style="font-size:70%;"><b>{{user.account}}</b></span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v2">
+                                <span style="font-size:70%;">Mboa</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v11">
+                                <span style="font-size:70%;">Technologies</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v12">
+                                <span style="font-size:70%;">Assets</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v2">
+                                <span style="font-size:70%;">NFTs</span>
+                              </div>
+                                 <div class="pt-fallbox-item -lg -v6">
+                                <span style="font-size:70%;">Bitcoin</span>
+                              </div>
+                                <div class="pt-fallbox-item -lg -v1">
+                                <span style="font-size:70%;">MboaEx</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v4">
+                                <span style="font-size:70%;">CryptoCurrency</span>
+                              </div>
+                              <div class="pt-fallbox-item -lg -v1">
+                                <span style="font-size:70%;">Mboa Technologies</span>
+                              </div>
+                            </div>
+                          </div>
+        <div class="pt-partner">
+              <div class="bty" style="box-shadow:20px 4px 100px #f6f4f0; background-color:#ffffff00; border-radius:7px ;width:100%;">
+
+          <div class="pt-partner-content -cb">
+            <div class="pt-partner-container">
+              <div class="pt-partner-header -xs">
+
+                  <h2>Don't be limited Only with your IP<br> Make Your Digital Twin that works For you. <span style="white-space: nowrap"> don't  be online </span> all time any more <br>Delegate Boring repetitive tasks to A Digital You Powered By AI.
+                  </h2>
+        </div>
+              </div>
+            </div>
+                  </div>
+
+             <div class="bty" style="border-radius:7px;width:80%;box-shadow:20px 4px 100px #ffffff; margin-left:20px;margin-bottom:10px;font-width:200% bold;color:#001100;border:solid 2px #ffffff00;"><p style="padding:2%;">Virtual You | Digital Twins </p> </div>
+
+
+            <div class="pt-partner-bundle">
+              <div class="pt-partner-logos">
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/outreach.png"
+                    srcset="/assets/img/partner/outreach@2x.png 2x"
+                    loading="lazy"
+                    alt="Outreach"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/hubspot.png"
+                    srcset="/assets/img/partner/hubspot@2x.png 2x"
+                    loading="lazy"
+                    alt="Hubspot"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/apollo.png"
+                    srcset="/assets/img/partner/apollo@2x.png 2x"
+                    loading="lazy"
+                    alt="Apollo"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/salesloft.png"
+                    srcset="/assets/img/partner/salesloft@2x.png 2x"
+                    loading="lazy"
+                    alt="Salesloft"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/instantly.png"
+                    srcset="/assets/img/partner/instantly@2x.png 2x"
+                    loading="lazy"
+                    alt="Instantly"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/lemlist.png"
+                    srcset="/assets/img/partner/lemlist@2x.png 2x"
+                    loading="lazy"
+                    alt="Lemlist"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                    src="/assets/img/partner/gohighlevel.png"
+                    srcset="/assets/img/partner/gohighlevel@2x.png 2x"
+                    loading="lazy"
+                    alt="GoHighLevel"
+                  />
+                </div>
+                <div class="pt-partner-logo">
+                  <img
+                     src="{%static '/assets/img/partner/close.png' %}"
+                    srcset="/assets/img/partner/close@2x.png 2x"
+                    loading="lazy"
+                    alt="Close.io"/>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+<hr style="height:1px; " >
+               <div style="display:flex; width:100%;
+                                           flex-direction:row;">
+            <div style="width:100%; padding:2%; margin:2%;" >
+                              <br>
+               <div style="width:100%; margin-right: 10px; height:30vh;" class="bty">
+               </div>
+               <div style="width:100%; height:30vh;" class="bty"> </div>
+               </div>
+                               <div style="width:100%; padding:2%; margin:2%;"  >
+                              <br>
+               <div style="width:100%; margin-right: 10px; height:30vh;" class="bty">
+               </div>
+               <div style="width:100%; height:30vh;" class="bty"> </div>
+               </div>
+                           </div>
+                 <div style="display:flex; width:100%;
+                                           flex-direction:row;">
+            <div style="width:100%; padding:2%; margin:2%;" >
+                              <br>
+               <div style="width:100%; margin-right: 10px; height:30vh;" class="bty">
+               </div>
+               <div style="width:100%; height:30vh;" class="bty"> </div>
+               </div>
+                               <div style="width:100%; padding:2%; margin:2%;"  >
+                              <br>
+               <div style="width:100%; margin-right: 10px; height:30vh;" class="bty">
+               </div>
+               <div style="width:100%; height:30vh;" class="bty"> </div>
+               </div>
+                           </div>
+        <div>
+<div  class="bty" style="border-radius:7;width:80%;box-shadow:20px 4px 100px #ffffff; margin-left:20px;margin-bottom:10px;font-width:200% bold;color:#001100;border:solid 2px #ffffff00;"><p> Related Bots : </p> </div>
+            <div class="btn" style="border:none; width:100%; border-radius:5px;">
+<!--<div style=" display: flex;">-->
+<!--                            <div class="btn" style=" box-shadow:20px 4px 100px #000; background-color:#e9FEC0; border-radius:7px ;margin-left:-10px; height:15vh;width:50%;">  </div>-->
+<!--                            <div class="btn" style="box-shadow:20px 4px 100px #fff; background-color:#e9FEC0; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>-->
+<!--                              <div class="btn" style=" box-shadow:20px 4px 100px #000; background-color:#e9FEC0; border-radius:7px ; margin-left:5px;height:15vh;width:50%;">  </div>-->
+<!--                            <div class="btn" style="box-shadow:20px 4px 100px #fff; background-color:#e9FEC0; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>-->
+<!--                     </div>-->
+                  <div style=" display: flex;margin-top:4px;">
+                            <div class="btn" style=" box-shadow:20px 4px 100px #000; background-color:#fff; border-radius:7px ;margin-left:-10px; height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:20px 4px 100px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                              <div class="btn" style=" box-shadow:20px 4px 100px #000; background-color:#f6f4f0; border-radius:7px ; margin-left:5px;height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:20px 4px 100px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                     </div>
+                       <div style=" display: flex;margin-top:4px;">
+                            <div class="btn" style=" box-shadow:20px 4px 100px #000; background-color:#fff; border-radius:7px ;margin-left:-10px; height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:20px 4px 100px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                              <div class="btn" style=" box-shadow:20px 4px 100px #000; background-color:#f6f4f0; border-radius:7px ; margin-left:5px;height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:20px 4px 100px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                     </div>
+
+         </div>
+
+<div style=" font-family:Comic Sans Ms;display:flex;flex-direction:row; margin-bottom:40px; height:30vh; border-radius:10px; width:100%;" class="bty">
+ <img style="border:solid 2px #fff;z-index:20px; blur:30px;backdrop-filter:blur(10px);margin-left:-20px;margin-top:1px; width:90px;opacity:90%; height:90px;border-radius:100%;"   src="{% static 'img/Mboa Academy.jpg'%}" alt="eth">
+    <h2  style="margin-left:10px;color:#008800; border-radius:2px; padding-top:2vh;
+                        width:100% ; height:150px;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+        Mboa Technologies <br>
+        <strong style="margin-top:3vh;font-size:50%;color:#001100;">   Join Developer Community WhatsApp Group and Telegram Channel</strong><br>
+  <div > <a href="/BuyBot"><h3  class="bty" style=" background-color:#6BBE4E; color:#f8f7f0;">Join Now</h3>  </a> </div>
+  </h2>
+            <div class="contact-info-item">
+                        <div class="social-links">
+                           <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-whatsapp"> </i></a>
+                        </div>
+
+                     </div>
+
+
+
+</div>
+
+          </div>
+            </div>
+
+</section>
+
+
+    {% endblock content %}
+
+{% block extra_scripts %}
+{% endblock %}

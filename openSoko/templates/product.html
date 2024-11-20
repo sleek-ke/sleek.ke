@@ -1,0 +1,100 @@
+{% extends "plug/core.html" %}
+
+{% block content %}
+<section class=" container wow fadeIn home-section align-items-center" style="background-color:rgba(0,0,0,0.2);
+        border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);margin-top:5vh;"  id="home">
+            <div class="container">
+               <div class="row align-items-center">
+                        <div  class="col-md-4 mb-4">
+                       {% for message in messages %}
+
+<div style=" opacity:90%;z-index:10;backdrop-filter:blur(10px);border-radius:7px;margin-top:20vh; width:100%;height:14vh;padding:2%;color:#001100; background-color:#6BBE4E;" class="bty bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2"   role="alert">
+           <div  class="flex">
+            <p style="flex-direction:row;color:yellow;" class="font-bold"> <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i> Success! <b style="color:#001100;margin-top:10px;" class="text-sm block sm:inline">{{ message }}</b></p>
+
+        </div>
+</div>
+    {% endfor %}
+                        </div>
+
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+ <div class="home-text">
+
+
+       <img  style="margin-top:5px;border-radius:24px;" src="{{ item.image.url }}" class="img-fluid" alt="">
+  </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4"> <center>
+             <div class="bty mb-3" style="font-family:Comic Sans Mn;font-size:150%;font-weight:bold;background-color:#ffffff00;border-radius:7px;border:none;">
+                {{ item.title }} <br>
+                  <p class="btn lead" style="margin-top:5px;background-color:#001100;margin-left:2%">
+              {% if object.discount_price %}
+              <span class="mr-1" >
+                <del>Ksh. {{ object.price }}</del>
+              </span>
+              <span style="color:#6BBE4E;">Ksh. {{ object.discount_price }}</span>
+              {% else %}
+              <span style="color:#6BBE4E;">Ksh. {{ object.price }}</span>
+              {% endif %}
+            </p>
+                   <button style="border-radius:7px;" class="btn"><a href="product-3D" style="color:#6BBE4E;"> Plug|3D view </a></button>
+
+            </div>
+                <div style="border:none; width:90%;" class="bty">
+            <p class="lead font-weight-bold">{{ object.description }}</p>
+                <hr style="height:1px;">
+
+
+</div>
+            </center>
+            <br>
+
+          <!--Content-->
+          <div class="p-4">
+            {% comment %} <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p" type="submit">
+                Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+            </form> {% endcomment %}
+  <br>
+            <a href="{{ object.get_add_to_cart_url }}"  style="border-radius:7px;color:#fff;background-color:#6BBE4E;" class="bty  btn-md my-0 p">
+              Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
+              <br>
+            <a href="{{ object.get_remove_from_cart_url }}" style="border-radius:7px; color:#fff;background-color:red;" class="bty btn-danger btn-md my-0 p">
+              Remove   <i class="fas fa-trash ml-1"></i>
+            </a>
+
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+
+
+      <!--Grid row-->
+    </div> </main>
+                  </div>
+               </div>
+</section>
+{% endblock content %}

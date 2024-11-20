@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{%load static%}
+{% block head_title %}Cryptocurrency{% endblock %}
+
+{% block content %}
+ <section  style="font-family:Comic Sans Mn;background-color:rgba(0,0,0,0.2);opacity:100%; backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id="home">
+    <div class="container">
+          {% for message in messages %}
+                       <div  class="bty bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2"
+      style="z-index:10px;backdrop-filter:blur(10px);margin:5%;border-radius:10px;border:2px solid rgba(255,255,255,0.2); width:80%; background-color:none"  role="alert">
+                  <div style="display:flex;flex-direction:row;height:100%;">
+                   <img style="opacity:20%; padding:2%; margin-left:-10%;width:40%; height:100%;" class="logoKenya"   src="{% static 'img/KenyanBrand.jpg'%}" alt="profile-img">
+                      <div style="margin-left: -10%;width:90%;" class="flex">
+            <p style="color:#001100;" class="font-bold">Confirmed,</p>
+            <p style="font-family:Comic Sans Mn;font-weight:bold;margin-top:10px;color:green" class="text-sm block sm:i nline">{{ message }}</p>
+        </div>
+                      </div>
+
+     <button  style="margin-right:-10vw;width:100%;border:none;background-color:#ffffff00;margin-top:1vh;" type="button" class="bty ">
+                    <a style="color:red;" href="/transactions/report"><i class="fas fa-times"> </i> </a> </button>
+
+</div>
+          {% endfor %}
+<div class="row align-items-center">
+   {% if data %}
+        {% for obj in data %}
+
+              <table style="font-size:80%;padding:2%; border-radius:2px;font-family:Comic Sans Mn;font-weight:bold;" class="home-txt table-auto mx-auto w-full mt-8">
+                                              <div style=" margin:2%;display:flex;flex-direction:row;border-radius:10px;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="row bty">
+                                   <div class="bty" style="margin:2%;border-radius:7px;">
+                                           <h2  style=" color:#001100; border-radius:2px;width:100% ;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >{{obj.market_cap_rank}}.  <br></h2>
+      </div>
+                                                  <div style=" display:flex;flex-direction:row;">
+                         <img style="box-shadow: 100px 2px 150px 50px orange; margin-left:10px;margin-top:20px; width:90px;opacity:100%; height:90px;border-radius:100%;"   src="{{obj.image}}" alt="BTC">
+                              <div style=" display:flex;flex-direction:column;border-bottom:none; margin-bottom:20px; border-radius:7px; width:100%;" class="bty">
+    <h2  style=" color:#001100; border-radius:2px; padding-top:2vh;width:100% ;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >{{obj.name}} <br></h2>
+<a   class="btn view-project-btn" style=" font-weight: bold;font-size: 14px;color:#f6f4f0; margin-top:20px; background-color:#6BBE4E; " >Buy</a>
+
+                                </div></div>
+                              <div style=" display:flex;flex-direction:column;border-bottom:none; margin-bottom:20px; border-radius:20px; width:100%;" class="bty">
+        <div style=" display:flex;flex-direction:row;" >
+            <img style="box-shadow: 100px 2px 100px 50px lightblue ;margin-left:10px;margin-right:5px;width:50px;opacity:100%; height:50px;border-radius:100%;"   src="{% static 'img/mpesa.png'%}" alt="Digital Money">
+    <h2  style=" color:#001100; border-radius:2px;width:100% ; height:150px;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+                          Price :${{obj.current_price}} <br></h2>   </div> <br>
+                <h3  style=" color:green; border-radius:2px;  font-weight: bold;font-size: 100%; font-stretch: ultra-condensed;" >Market Cap  | <b style="color:red;">{{obj.market_cap}}<b></b><br></h3>
+                              </div>
+                                  <button  class="bty " style="background-color:#ffffff00; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:-20px;  width:100%; " ><a style="color:#f4f6f9;" href="/positions">+more</a></button>
+                              </div>
+        {% endfor %}
+        {% else %}
+              </table>
+          <h3>No data</h3>
+      {% endif %}
+
+                  </div>
+        {% block footer_extra %}
+        {% endblock %}
+               </div>
+</section>
+{% endblock %}

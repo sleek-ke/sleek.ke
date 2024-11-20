@@ -1,0 +1,68 @@
+{% extends 'plug/core.html' %}
+{% block head_title %}MboaEx  Banja Bro{% endblock %}
+{% block content %}
+
+    <style>
+      .message-success-box {
+        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        display: inline-block;
+        text-align: left;
+      }
+
+      .message-success-box h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .message-success-box p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .message-success-box a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .message-success-box a:hover {
+        background-color: #0056b3;
+      }
+    </style>
+<section   style="margin-top:6vh;" class="home-section align-items-center theme-layout" id="Ma-Plug">
+            <div style="width:90vw;" class="container">
+               <div class="row align-items-center">
+                  <div  class="home-img">
+<center>
+                <div class="container">
+                <div class="row ng-scope">
+                    <div class="col-md-3 col-md-push-9">
+    <div class="message-success-box">
+      <h1>Send Your Message</h1>
+      <p>What Do You Wish to Say?</p>
+            <div class=" bottom-3 flex  items-center right-0 right-3 text-xl space-x-2">
+                                        <a href="#"> <i class="uil-image"></i></a>
+                                        <a href="#">  <i class="uil-phone"></i> </a>
+                                        <a href="#"> <i class="uil-video"></i></a>
+                                    </div>
+
+        <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
+                                    <input style="margin:5%;font-family:Comic Sans Mn;" type="text" placeholder="Banja Na Plug..." class="btn bg-transparent max-h-10 shadow-none">
+
+                                </div>
+
+      <a href="{% url 'conversation:notifications' %}" class="btn btn-primary">Send  Message</a>
+    </div>
+  </div>
+                </div>
+                </div>
+</center></div>
+               </div></div>
+</section>
+{% endblock %}

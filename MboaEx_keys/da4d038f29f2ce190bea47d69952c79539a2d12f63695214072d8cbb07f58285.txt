@@ -1,0 +1,2 @@
+Private key: da4d038f29f2ce190bea47d69952c79539a2d12f63695214072d8cbb07f58285
+Wallet address / Public key: 2nmFwDL5BbWfqUSJuZD1vIftapcvaJDV+lJnU7mN+xZKgw8hOUYTEWyp0uomSBf85zpfvWw2U4BIXewBwH3n9g==

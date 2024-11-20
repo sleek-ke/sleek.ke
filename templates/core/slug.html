@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<section class="home-section align-items-center" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+                     <img  class="logo" src="{% static 'img/Mboa Academy.jpg '%}" alt="profile-img">
+                     <h1  >  Sleek-ID</h1>
+
+  <h2>Content Of  {{ user.first_name }}</h2>
+
+                    <pre style="" class="bty">{{ file_content }}</pre>
+
+
+
+
+
+                  </div>
+               </div>
+
+                <center>
+                        <div  class="btn">
+                         <a style=" color:green;" href="/accounts/register" > Other Members</a>
+
+                   </div>
+
+
+ </center>
+            </div>
+    </section>
+  {% endblock %}

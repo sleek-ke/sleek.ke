@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+{% block content %}
+{%load static%}
+
+    <section style=" margin-top:2px;background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id="home">
+
+    <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+                          <img  style="margin-top:-10vh;" class="logo" src=" {{ user.address.profileimg.url }}" alt="profile-img">
+              <h1 >   Hey, {{ user.first_name }} <br>  {{ user.account }}</h1>
+
+                  </div>
+
+<div class="home-txt" >
+                      <div style="margin-top:10v;margin-left:25%;background-color:rgba(0,0,0,0.2);
+        opacity:90%;backdrop-filter:blur(50px);border:2px solid rgba(255,255,255,0.2);z-index:10px;box-shadow:40px 40px 80px 80px rgba(0,0,0,0.3);" class="bty">
+                          <p style="margin-bottom:60px;margin-top:20px;">Are you sure you want to exit?</p>
+             <a  style="background:red;" class="bty" href="/accounts/out">Exit</a>
+             <a  style="background:green;" class="bty" href="/wallet">Cancel</a> </div>
+                      </div>
+
+<!--   <a  style="width:80%;background:green;" class="bty" href="/wallet">About Us</a> </div>-->
+
+
+</div>
+                  </div>
+</section>
+{% endblock %}

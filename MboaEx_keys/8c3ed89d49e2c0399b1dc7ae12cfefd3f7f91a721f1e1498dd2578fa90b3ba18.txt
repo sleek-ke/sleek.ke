@@ -1,0 +1,2 @@
+Private key: 8c3ed89d49e2c0399b1dc7ae12cfefd3f7f91a721f1e1498dd2578fa90b3ba18
+Wallet address / Public key: QsB/67j0XQz35SmaKBojn8lcXhbiNY9OwZC7jffyPVvq1FYFEn+91zFOX0fyWaxJSjou0hGMV3MEffLI8GP/5A==

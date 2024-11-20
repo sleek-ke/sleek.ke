@@ -1,0 +1,43 @@
+{% extends "core/base.html" %}
+{% block content %}
+
+
+<section  style="background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class=" container wow fadeIn home-section align-items-center" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+<div class="home-text">
+    <h2>Request Refund</h2>
+    <form method="POST"  style="width:100%; border: 2px solid  #f6f4f0;opacity:1px;color:green;margin-top: 40px; padding:10%; border-radius:40px;" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="/request-refund">
+        {% csrf_token %}
+        {% for hidden_field in form.hidden_fields %}
+         <div class=" mb-4">
+            <input  required style="width:95%;" class="bty  text-decoration:none;shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="{{ field.label }}" name="{{ field.name }}" id="{{ field.label }}" type="{{ field.widget_type }}">
+        </div>
+            {{ hidden_field.errors }}
+            {{ hidden_field }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+        <div class=" mb-4">
+            <input  required style="width:95%;" class="bty  text-decoration:none;shadow appearance-none border border-gray-500 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="{{ field.label }}" name="{{ field.name }}" id="{{ field.id_for_label }}" type="{{ field.widget_type }}">
+        </div>
+            {% if field.errors %}
+                {% for error in field.errors %}
+                <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        <div class="flex items-center justify-between">
+             <br>
+
+        <button type='submit' class='btn btn-primary'>Submit</button>
+        </div></form>
+</div>
+    </div>
+               </div>
+</section>
+
+
+{% endblock content %}
+
+

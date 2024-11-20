@@ -1,0 +1,2 @@
+/Hey,/Wallet Address Public Key:gipODM/KpjzQIvoW8OiVWGqyJkT+EY8ZOSbQv6Ix98nDYpADRkrLbDD99IknAU2x5EhIxBwA03yBfqOGsDNskw== 
+Order Confirmation  Secret(Don't Share or disclose This to anyone.) / Private Key:db66e98ef2f195c78041d5b5a0246f1b22ef409ff20497a1ca2b824b68b5666f 

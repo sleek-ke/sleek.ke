@@ -1,0 +1,55 @@
+{% load static %}
+<nav style="margin-left:40px margin-bottom:4px;" class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <img style="width:80% ; margin-top:-10%;opacity:20%;  height:50%;border-radius:50%;"   src="{% static 'img/shootCenterBanner.png'%}" alt="KenyanBrand">
+        {% if request.user.is_authenticated %}
+
+            <div style="font-family:Comic Sans Mn; margin-top:-80%; margin-bottom:2px;" class=" text-md lg:flex-grow">
+                <div style="color:#000;font-weight:bold;font-size:24px;" class="about-tabs">
+               <div style="border:none; background-color:#ffffff00; flex-direction: row;display: flex;border-radius:7px;margin-bottom:5px;margin-right:1vw;margin-left:1vw; margin-top:5vh;"  >
+            <div style="width:50%;  border-radius:10px; height:10vh;" class="btn"><a style="margin-left:-20px;" href="/setting" type="button" class="tab-item active">Settings</a> </div>
+                        <div style="width:50%; border-radius:10px; height:10vh;margin-left:5px;" class="btn"> <a style="margin-left:-20px;" href="/accounts/cardy" type="button" class="tab-item  "> Sleek-ID</a> </div>
+               <div style="width:50%;  border-radius:10px; height:10vh;margin-left:5px;" class="btn"><a  style="margin-left:-20px;" href="/wallet" type="button" class="tab-item">Wallet</a> </div>
+ </div>
+                        <a  style="font-weight:bold;"  href="/positions/" type="button" class="tab-item">Buy Cryptocurrency</a>
+                        <a  href="/plug/post" type="button" class="tab-item">Posts</a>
+                        <a  href="/Swap" type="button" class="tab-item ">Swap </a>
+                       <a  href="/P2P/Bots" type="button" class="tab-item ">Bots</a>
+                        <a  href="/MboaEx" type="button" class="tab-item ">About</a>
+                        <a  href="/P2P" type="button" class="tab-item ">P2P</a>
+                      <a  href="/academy"  type="button" class="tab-item  "> Mboa Academy</a>
+
+                </div>
+                <a  style=" background-color:#000;color:#f6f4f1;" href="{% url 'transactions:transaction_report' %}" class=" bty block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                    History
+                </a>
+                <a style="background-color:#008800;" href="{% url 'transactions:deposit_money' %}" class=" bty block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                    Deposit
+                </a>
+                <br>
+                <a  style="color:#F6F8F9; background-color:#6BBE4E;" href="{% url 'transactions:withdraw_money' %}" class="bty block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+                    Withdraw
+                </a>
+                <a href="{% url 'transactions:eshopcart' %}" class="bty block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+                    Mboapay
+                </a>
+<br>
+                <a  style="background-color:red;" href="/accounts/logout/" class=" bty inline-block font-medium text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Logout</a>
+
+            </div>
+
+        {% else %}
+            <div style="margin-top:-10px;" class="text-md lg:flex-grow"></div>
+            <div>
+                <a href="{% url 'accounts:user_login' %}" class="btn mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Login</a>
+            </div>
+            <div>
+                <a href="{% url 'accounts:user_registration' %}" class="bty inline-block font-medium text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Register</a>
+            </div>
+
+        {% endif %}
+    </div>
+  <button   style= " margin-top:5px; color:#008800; background-color:#fff;"  class="btn  view-project-btn  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white"> <a  style= " color:#008800;" href="/openSoko"> Visit openSoko</a></button>
+    <button  style= " margin-top:10px; color:#f6f4f0; background-color:#000;" type="button" class="btn  view-project-btn  block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white"> <a style="color:#f8f0f9;" href="{% url 'MboaEX' %}"> Buy NFTs</a></button>
+        <a href="{% url 'transactions:Invest' %}" type="button" style="margin-top:20px;" class="btn   block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">Invest in Mboa Technologies</a> <br>
+</nav>

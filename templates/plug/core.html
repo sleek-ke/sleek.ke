@@ -1,0 +1,119 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link class="bty" style="width:50px;height:50px;border-radius:100%;" rel="shortcut icon" href="{{ user.address.profileimg.url }}"  id="icon" >
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+	<title>
+        {% block head_title %}
+        Wooza |  {{user.first_name}} - {{user.address.slug}}
+    {% endblock %}
+    </title>
+
+
+   <!-- <link rel="icon" href="images/fav.png" type="image/png" sizes="16x16"> -->
+
+    <link rel="stylesheet" href="{% static 'plug/css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plug/css/strip.css' %}">
+    <link rel="stylesheet" href="{% static 'plug/css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'plug/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'plug/assets/css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'plug/assets/css/uikit.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'plug/assets/css/style.css' %}">-->
+    <link rel="stylesheet" href="{% static 'plug/assets/css/tailwind.css' %}">
+{% block head_extra %}{% endblock %}
+
+</head>
+
+ <!-- PG Start -->
+   <div class="page-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+   </div>
+   <div class="bg-circles">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-5"></div>
+
+      <div style=" background:url({% static 'img/KenyanBrand.jpg' %});" class="circle-4"></div>
+
+   </div>
+   <!-- BG End -->
+   <!-- Overlay Start -->
+   <div class="overlay"></div>
+   <!-- Overlay End -->
+   <body class="bg-gray-100" style="font-family:Comic Sans Ms;">
+      <!-- Main Start -->
+       {% block body %}
+      <div class="main hidden">
+         <!-- Header Start -->
+         <header class="header">
+            <div class="container">
+               <div class="row flex-end">
+                  <button style="margin-top:6vh;margin-right:8%;" type="button" class="nav-toggler">
+                  <span></span>
+                  </button>
+
+                  <div  class="nav">
+                     <div  style="width:100%;margin-top:5vh;background-color:rgba(0,0,0,0.2);
+        opacity:100%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="nav-inner">
+ <div  style="margin-left:2px;" class="home-img">
+
+
+{% include 'core/navbar.html' %}
+                    </div> </div>
+                  </div>
+
+
+               </div>
+            </div>
+         </header>
+         <!-- Header End -->
+         <!--Home Section Start -->
+          {% include "Title.html" %}
+          <div class="lg:container lg:mx-auto">
+                {% block content %}
+                <!-- Add content here -->
+               {% include 'core/messages.html' %}
+                {% endblock %}
+
+            </div>
+
+      </div>
+      </body>
+   {% endblock %}
+
+
+<div class="portfolio-popup">
+         <div class="pp-inner">
+            <div class="pp-content">
+               <div class="pp-header">
+                  <button type="button" class="btn pp-close">
+                      <i class="fas fa-times"> </i> </button>
+
+                  </div>
+                        {% include 'mpesa/LipaNaMpesa.html' %}
+               </div>
+               <div class="pp-body">
+               </div>
+
+            </div>
+         </div>
+
+      <!-- Portfolio Item Details Popup Start -->
+<script src="{% static 'plug/js/script.js' %}"></script>
+<script src="{% static 'plug/assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'plug/assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'plug/assets/js/uikit.js' %}"></script>
+    <script src="{% static 'plug/assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'plug/assets/js/custom.js' %}"></script>
+    <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/codeblock.js' %}"></script>
+
+</html>

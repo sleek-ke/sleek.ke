@@ -1,0 +1,38 @@
+{% extends 'plug/core.html' %}
+{% load static %}
+{% block content %}
+<section  style="margin-top:5vh;width:100%; background-color:rgba(0,0,0,0.2);border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id ="home">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+          {% include "order_snippet.html" %}
+ </div>
+
+                   <div class="home-text">
+                   {% if request.user.is_authenticated %}
+<form action="{% url 'stk' %}" method="POST" >
+                                                             {% csrf_token %}
+
+                                                             <input type="text" id="phone_number"  hidden  readonly value="0{{user.address.postal_code}}" name="phone_number" placeholder="phone number" class="btn form-control" required autofocus    style="font-family:Comic Sans Mn;font-size:24px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; width:100%; "><br>
+                                                             <input type="text" id="order_instance_Slug"  hidden  readonly value="{{order.ref_code_confirm}}" name="order_instance_Slug" placeholder="{{order.ref_code_confirm}}" class="btn form-control" required autofocus    style="font-family:Comic Sans Mn;font-size:24px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; width:100%; "><br>
+                                                             <input type="number" id="amount" hidden  readonly value="{{ order.get_total }}" required name="amount" class=" btn form-control" placeholder="Amount " style="font-family:Comic Sans Mn;font-size:24px;text-align:center; height:7vh;margin-top:20px; margin-bottom:70px;border-radius:10px; width:100%;">
+    <button style="box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3); border:2px solid rgba(255,255,255,0.2);background-color:#DCECC8;display:flex;flex-direction:row;border-radius:7px; width:96%; " type="submit" class="btn  my-0 p"> <img style=" margin-left:35%;width:80px; font-size:40%;  height:60px;"   src="{% static '/img/mpesa.png'%}"></button>
+                   </form>
+ {% else %}
+            <div style="margin-top:50px;" class="text-md lg:flex-grow"></div>
+            <div>
+                <a href="/Deposit" class="bty mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Buy  | <img style="width:50px; font-size:40%;  height:40px;"   src="{% static '/img/mpesa.png'%}">
+                </a></div>
+{% endif %}
+                        <hr style="height:1px;">
+                       <center>
+                         <button  class="bty  my-2 " style="background-color:#000;font-weight:bold;color:#fff;border:2px solid #000 ;display:flex;flex-direction:row;border-radius:20px;  " type="submit"> Other Payment Options</button>
+                                <button  style="margin-top:5%;background-color:#DCECC8;border-radius:20px; width:80%; "  class="btn btn-md mb-4 my-2 font-family:Comic Sans Mn; font-weight-bold black-text p">
+             <a href="/delivery/{{user}}/{{order.id}}">Orders History
+             </a>  </button>
+</center>
+ </div>         </div></div>
+</section>
+
+{% endblock content %}
+

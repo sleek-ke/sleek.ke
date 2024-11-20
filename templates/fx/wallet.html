@@ -1,0 +1,141 @@
+{% extends 'core/base.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+{% block content  %}
+{% load static %}
+         <section
+                  style="background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id="home">
+            <div style="width:90vw;" class="container">
+               <div class="row align-items-center">
+                  <div  class="home-img">
+<center>
+                    <!--     <img src="{% static profile_pic.url %}" alt="" style="border-radius: none;opacity: 60%;"  >
+    -->
+    <img style="width:150px; height:150px ;border-radius:100%; "   loading="lazy"  src=" {{ user.address.profileimg.url }} " alt="profile-img">
+    <br>
+    <a class="btn" style="background-color:#000;color:#f6f4f0;" href="/plug/Mali"> Profile</a>
+    <a href="/openSoko" style="margin-top:10vh;">
+<div class="bty" style=" border:none; padding:1%;margin-bottom:15px;border-radius:20px;width:80px;height:50px;">
+                  <svg  width="80" height="80" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="15" cy="15" r="15" fill="white"/>
+    <path d="M14.5556 20.25H8.85185V16.75H14.5556V20.25ZM23.1111 16.75V15L22.1605 10.625H6.95062L6 15V16.75H6.95062V22H16.4568V16.75H20.2593V22H22.1605V16.75H23.1111ZM22.1605 8H6.95062V9.75H22.1605V8Z" fill="#43B02A"/>
+                  </svg> </div>
+    </a>
+
+                        <div style="
+                        margin-right:20px;font-family:Comic Sans Mn;
+                        margin-bottom:5px;font-size:80%;height:20vh;animation: zoomInOut 30s linear infinite;">
+                           <h1>{{ user.first_name}} <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i> </h1>
+                               <h2 >
+                                   Sleek-ID {{user.account.account_no}}
+                               </h2>
+                               <hr style="width:100%;height:1px;"/>
+</div>
+    <div style=" display:flex;flex-direction:column;border-bottom:none; margin-bottom:2px; border-radius:0px; width:100%;" class="bty">
+ </div>
+<!--          <a class="btn" style="font-family:Comic Sans Mn;margin-top:2vh;background-color:black;color:#f6f4f0;" href="/setting">Settings</a> -->
+                                   <div style="width:100%;font-family:Comic Sans Ms;  border-radius:20px; border-top:none;" class="bty">
+    <h2  style="color:#001100; border-radius:2px; padding-top:2vh; font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+                         Account Balance <br>
+        <br>Ksh {{ user.account.balance }} <br> </h2>
+          <div style=" display:flex;flex-direction:column;margin-top:5px;background-color:rgba(0,0,0,0.3);box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" >
+              <button  class="bty " style="background-color:#6BBE4E; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:10px;  width:100%; " >
+    <a style="color:#f4f6f9;" href="/Deposit">Deposit</a></button>
+              <button  class="bty " style="background-color:#ffffff00;border:2px solid #f5f7f9; font-weight: bold;font-size: 14px; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:20px;  width:100%; " >
+    <a style="color:#001100;" href="/transactions/withdraw">Withdraw</a></button>
+          </div>
+           </div></center>
+                  </div>
+
+                     <div class="home-about">
+                                 <hr style="height:1px;">
+                          <div style=" display:flex;flex-direction:row;">
+                               <img style="box-shadow: 100px 2px 200px 50px lightblue; margin-left:10px;margin-top:20px; width:90px;opacity:100%; height:90px;border-radius:100%;"   src=" {% static 'img/Mboa Academy.jpg'%}" alt="BTC">
+                              <div style=" display:flex;flex-direction:row; margin-bottom:20px; height:13vh; border-radius:10px; width:100%;" class="bty">
+
+    <h2  style=" color:#001100; border-radius:2px; padding-top:2vh;
+                        width:100% ; height:150px;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+                          NFTs<br>
+        <strong style="font-size:50%"> Buy Digital Assets </strong><br>
+  <!--<a  href="/Deposit" class="btn " style="background-color:#005500; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height: 5vh; margin-top:20px;  " >Buy</a>-->
+    </h2>
+<!--<a  href="/P2P/Bots" class="bty " style="background-color:#6BBE4E; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height: 5vh; margin-top:20px;  width:100%; " >Buy</a>
+          -->                        <button  class="bty " style="background-color:#6BBE4E; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:100%; " ><a style="color:#f4f6f9;" href="/Deposit">Buy</a></button>
+</div>
+                              </div>
+   <div style=" display:flex;flex-direction:row;">
+                               <img style="box-shadow: 100px 2px 200px 50px #001100; margin-left:10px;margin-top:20px; width:90px;opacity:100%; height:90px;border-radius:100%;"   src=" {% static 'img/Mboa Academy.jpg'%}" alt="BTC">
+                              <div style=" display:flex;flex-direction:row; margin-bottom:20px; height:13vh; border-radius:10px; width:100%;" class="bty">
+
+    <h2  style=" color:#001100; border-radius:2px; padding-top:2vh;
+                        width:100% ; height:150px;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+                          Bots<br>
+        <strong style="font-size:50%"> Autonomy in EveryThing... </strong><br>
+  <!--<a  href="/Deposit" class="btn " style="background-color:#005500; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height: 5vh; margin-top:20px;  " >Buy</a>-->
+    </h2>
+<!--<a  href="/P2P/Bots" class="bty " style="background-color:#6BBE4E; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height: 5vh; margin-top:20px;  width:100%; " >Buy</a>
+          -->                        <button  class="bty " style="background-color:#6BBE4E; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:100%; " ><a style="color:#f4f6f9;" href="/Deposit">Buy</a></button>
+</div>
+                              </div>
+                     <br>
+               </div>
+                      </div>
+                <div style="padding:2%;margin-left:5px;display: flex;
+                              flex-direction: row;">
+               <div style="width:100%; border-radius:10px; height:20vh;" class="bty"> </div>
+               <div style="width:100%; border-radius:10px; height:20vh;margin-left:4px" class="bty"> </div>
+               <div style="width:100%; border-radius:10px; height:20vh;margin-left:4px" class="bty"> </div>
+              </div>
+                              <div style=" display:flex;flex-direction:row; margin-bottom:20px; height:29vh; border-radius:0px; width:100%;" class="bty">
+    <div style="padding:10px;">
+<svg  style=" background-color:#f6f4f0;margin-left:20px; margin-top:-10px;width:100px; height:100px; box-shadow: 10px 0px 34px 50px #f6f4f0;"  viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M30.7195 9.78166C29.9097 7.88122 28.7647 6.17642 27.2845 4.6952C25.8044 3.21397 24.1288 2.06812 22.2298 1.25764C20.247 0.419214 18.1525 0 16.0021 0C13.8238 0 11.7293 0.419214 9.7744 1.25764C7.87537 2.06812 6.17184 3.21397 4.69171 4.6952C3.21159 6.17642 2.06659 7.88122 1.25671 9.78166C0.418903 11.738 0 13.8341 0 16.014C0 18.1659 0.418903 20.262 1.25671 22.2463C2.06659 24.1467 3.21159 25.8515 4.69171 27.3328C6.17184 28.814 7.87537 29.9598 9.7744 30.7424C11.7572 31.5808 13.8517 32 16.0021 32C18.1525 32 20.247 31.5808 22.2298 30.7424C24.1288 29.9319 25.8323 28.786 27.3125 27.3048C28.7926 25.8236 29.9376 24.1188 30.7475 22.2183C31.5853 20.2341 32.0042 18.138 32.0042 15.986C32.0042 13.8341 31.5574 11.738 30.7195 9.78166ZM10.696 14.5048C11.3383 11.9336 13.6842 10.0611 16.4489 10.0611H27.5638C28.2899 11.4306 28.7367 12.9397 28.9043 14.5048H10.696ZM28.9043 17.5231C28.7367 19.0882 28.262 20.5974 27.5638 21.9668H16.4489C13.6842 21.9668 11.3662 20.0664 10.696 17.5231H28.9043ZM6.81415 6.81921C9.27172 4.35983 12.5392 3.01834 16.0021 3.01834C19.465 3.01834 22.7325 4.35983 25.19 6.81921C25.2738 6.90306 25.3297 6.95895 25.4134 7.0428H16.4489C14.0472 7.0428 11.8131 7.96507 10.1095 9.66987C8.76903 11.0114 7.9033 12.6882 7.62403 14.5048H3.09988C3.435 11.5983 4.71964 8.91528 6.81415 6.81921ZM16.0021 29.0096C12.5392 29.0096 9.27172 27.6681 6.81415 25.2087C4.71964 23.1127 3.435 20.4017 3.09988 17.5231H7.62403C7.93123 19.3397 8.79696 21.0166 10.1095 22.3581C11.8131 24.0629 14.0472 24.9852 16.4489 24.9852H25.4134C25.3297 25.069 25.2738 25.1249 25.19 25.2087C22.7325 27.6681 19.465 29.0096 16.0021 29.0096Z" fill="black"/>
+</svg>
+    <h2  style="color:#001100; border-radius:2px; padding-top:2vh;
+                        width:100% ; height:150px;font-weight: bold;font-size: 20px; font-stretch: ultra-condensed;" >
+                          WorldCoins <br>
+        <strong style="font-size:50%;">   Your Balance is <br>Ksh{{ user.account.balance }}  </strong><br>
+    </h2>
+    </div>
+    <div style="font-family:Comic Sans Mn;text-align:center; font-size:50%;">
+        <center>
+<a   class="btn view-project-btn" style=" font-weight: bold;font-size: 14px;color:#f6f4f0; margin-top:20px; background-color:#6BBE4E; " >Buy</a>
+<a  href="/Deposit" class="btn " style="font-weight: bold;font-size: 14px;color:#f6f4f0; margin-top:20px; background-color:#fffff0; color:#001100;" >Sell</a>
+        </center></div>
+</div>
+                          <div style="margin-left:5px;display: flex;
+                              flex-direction: row;">
+               <div style="width:50%; margin-right: 10px; height:30vh;" class="bty">
+               </div>
+               <div style="width:50%; height:30vh;" class="bty"> </div>
+               </div>
+               <div style="margin-bottom:30px;display: flex;margin-left:5px;
+                                       flex-direction: row;">
+                        <div style="width:50%; margin-right: 10px; height:30vh;" class="bty">
+                        </div>
+                        <div style="width:50%; height:30vh;" class="bty"> </div>
+               </div>
+
+                                              <div style=" margin:2%;display:flex;flex-direction:row;border-radius:10px;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="row bty">
+                                  <button  class="bty " style="background-color:#ffffff00; font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%;  width:100%; " ><a style="color:#000;font-weight:bold;" href="/positions">Cryptocurrency</a></button>
+                              </div>
+            </div></section>
+   <div class="portfolio-popup">
+         <div class="pp-inner">
+            <div class="pp-content">
+               <div class="pp-header">
+                  <button type="button" class="btn pp-close">
+                      <i class="fas fa-times"> </i> </button>
+                  </div>
+                        {% include 'mpesa/LipaNaMpesa.html' %}
+               </div>
+               <div class="pp-body">
+               </div>
+
+            </div>
+         </div>
+      <!-- Portfolio Item Details Popup Start -->
+<script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/codeblock.js' %}"></script>
+
+{% endblock %}

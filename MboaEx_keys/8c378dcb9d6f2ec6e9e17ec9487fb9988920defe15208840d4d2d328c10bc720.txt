@@ -1,0 +1,2 @@
+/Wallet Address Public Key: 8c378dcb9d6f2ec6e9e17ec9487fb9988920defe15208840d4d2d328c10bc720
+Wallet  Secret(Don't Share or disclose This to anyone.) / Private Key: Xn/nmth/L1Iif0oOliFam+lObXenNSfGKnMBK37Xem5tYsXRkc/3fpREqnXWBf5TTgzjdFzka8jLqkE3r7HWnQ==

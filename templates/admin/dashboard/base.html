@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load i18n static admin_black %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_direction as direction %}
+{% get_admin_setting as admin_setting %}
+<html lang="en">
+
+<head>
+    {% include 'dashboard/head.html' %}
+    {% block extrahead %}{% endblock extrahead %}
+    {% block extrastyle %}{% endblock extrastyle %}
+</head>
+
+<body class="{% block bodyclass %}{% endblock bodyclass %}">
+    <div class="wrapper">
+        {% block sidebar %}
+        {% include 'dashboard/sidebar.html' %}
+        {% endblock sidebar %}
+        <div class="main-panel">
+            {% block navigation %}
+            {% include 'dashboard/navigation.html' %}
+            {% endblock navigation %}
+            {% block content %}{% endblock content %}
+            {% block footer %}
+            {% include 'dashboard/footer.html' %}
+            {% endblock footer %}
+        </div>
+    </div>
+    {% block fixed-plugin %}
+    {% include 'dashboard/fixed-plugin.html' %}
+    {% endblock fixed-plugin %}
+    {% include 'dashboard/scripts.html' %}
+    {% block extrajs %}{% endblock extrajs %}
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+/Wallet Address Public Key: 2c626c131cb2ccd4a74d68a250b2ee6a55a02084b89f2290e29662b0283b8879
+Wallet  Secret(Don't Share or disclose This to anyone.) / Private Key: wVxwI8O4bdpuXrhbpJk/VlxpDx5ErDhm/2p8I14SsLDHLOcedzm7/AYLkJlxnicUQ0415e7uEISaSTv72RHbJA==

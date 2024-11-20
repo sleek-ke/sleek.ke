@@ -1,0 +1,63 @@
+{% extends 'plug/core.html' %}
+{% block head_title %}{{ order.ref_code_confirm }}{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<section  style="color:#000;font-weight:bold; font-family:Comic Sans Mn;margin-top:15vh;background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);"  class="home-section align-items-center" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+                      <div style="border:none;margin-top:20px; padding-top:10px;" class=" container wow fadeIn home-section align-items-center" id="home">
+             <main >
+
+                 <div class="w-full mt-10">
+                       <div style="font-weight:bold;" class="table-responsive text-nowrap">
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th scope="col">Order ID</th>
+            <th scope="col">Submitted</th>
+            <th scope="col">Approved</th>
+            <th scope="col">Delivery</th>
+            <th scope="col">Date Delivered</th>
+            <th scope="col">Order Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="font-weight:bold;">
+
+            <td> <a href="{% url 'core:order-summary' %}">  MBOA-{{ order.id}} </a></td>
+             <td>{{ order.start_date}}</td>
+            <td>{{ order.received}}</td>
+            <td>{{ order.being_delivered}}</td>
+            <td>{{ order.ordered_date}}</td>
+            <td>{{ order.ref_code_confirm }}</td>
+            <td>
+             </td>
+        </tr>
+          </table>
+            <div style="height:30vh;flex-direction:column;" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex items-center justify-between">
+              {% if order.received == False %}
+             <p>  Order Waiting  Approval </p>
+
+                  <button  style="margin-top:10%;background-color:#DCECC8;border-radius:20px; width:100%; "  class="btn btn-md mb-4 my-2 font-family:Comic Sans Mn; font-weight-bold black-text p">
+             <a href="/request-refund">Request Refund |
+             </a>  </button>
+                {% else %}
+               <p> Order Approved </p>
+                  <button style="width:80%;background-color:#6BBE4E;"  class=" btn view-project-btn bg-gradient-to-br from-black-500 py-3 rounded-md text-green text-xl to-green-400 w-full">Pay</button>
+
+                {% endif %}
+            </div>
+                           </div>
+
+      <hr style="width:80%;height:1px;"/>
+                 </div></main> </div>
+                  </div>
+               </div>
+            </div>
+</section>
+    {% endblock %}

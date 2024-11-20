@@ -1,0 +1,100 @@
+{% extends 'plug/core.html' %}
+{% block head_title %}Sleek.ke - P2P Assets Exchange{% endblock %}
+
+{% block content %}
+{%load static%}
+
+
+         <section style="margin-top:10vh;background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center theme-layout" id="home">
+            <div  class="container">
+               <div class="row align-items-center">
+                  <div  class="home-img">
+<center>
+
+                 <div style="width:100%;">
+                    <form  action="/plug/search" method="POST">
+                    {% csrf_token %}
+                    <div class="left-side">
+                        <!-- Logo -->
+                        <div id="logo" class=" uk-hidden@s">
+                            <a href="/admin">
+                                <img  style="margin-top:-5vh; width:50px;height:50px;border-radius:100%;"  src=" {% static 'img/Mboa Academy.jpg '%}" alt="profile-img">
+                                <b><h1 style=" margin-bottom:30px; text-transform: uppercase;">Sleek.ke</h1></b>
+                            </a>
+                        </div>
+                         <div   class="  header_search" style="margin-bottom:20px;display:flex;flex-direction:row;">
+                            <input  style="margin-left:20px;width:75%;height:6vh;" class="btn" type="text" name="username" placeholder=" search...">&nbsp; &nbsp;
+                            <button style="margin-top:-4px;margin-left:-10vw;border-radius:7px;background-color:#6BBE4E;" class="bty" type="submit"><i class="fa fa-search fa-1x"></i></button>
+                        <!-- </div> -->
+
+                    </div>
+                    </div></form>
+
+
+                            <!-- notification contents -->
+                            <div class="flex justify-center flex-center text-center">
+
+                                <div style=" width:90%;" class="flex flex-col choose-upload text-center">
+
+                                    <div class="mx-auto flex flex-col h-24 items-center justify-center relative w-full rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
+                                            <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
+                                            <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
+                                        </svg>
+                                    </div>
+
+                                    <form action="upload" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    <p class="my-3 leading-6"> Upload pics
+                                    </p>
+                                    <div  style="width:100%;" >
+                                        <input  style="margin-top:20px;width:90%;" class="btn" type="file" name="image_upload">
+                <br>
+                                        <textarea  style="width:80%;color:#001100;border-radius:7px;margin-top:20px;" class="btn button soft-warning small" name="caption" placeholder="caption..." ></textarea>
+                                        <br>
+                                        </div><button style="border:2px dotted #000;margin-top:20px;width:90%; font-weight:bold;background-color:#6BBE4E;" class=" bty button" type="submit" >Upload</button>
+                                    </form>
+
+                                     <a href="#" class="uk-text-muted mt-3 uk-link"
+                                        uk-toggle="target: .choose-upload ;  animation: uk-animation-slide-right-small, uk-animation-slide-left-medium; queued: true">
+                                        Or Import Video </a>
+                                </div>
+
+                                <div class="uk-flex uk-flex-column choose-upload" hidden>
+                                     <div  class="bg-gray-100 border-2 border-dashed flex flex-col h-24 items-center justify-center relative w-full rounded-lg  ">
+
+
+                                        <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-12">
+                                            <path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                    <p class="my-3 leading-6"> Import videos from YouTube <br> Copy / Paste your video link here </p>
+                                    <form class="uk-grid-small" uk-grid>
+                                        <div class="uk-width-expand">
+                                            <input type="text" class="uk-input uk-form-small  bg-gray-200 " style="box-shadow:none" placeholder="Paste link">
+                                        </div>
+                                        <div style="margin-top:-20px;" class=" uk-width-auto"> <button type="submit" class="bty button soft-warning -ml-2">
+                                                Import </button> </div>
+                                    </form>
+                                    <a href="#" class="uk-text-muted mt-3 uk-link"
+                                        uk-toggle="target: .choose-upload ; animation: uk-animation-slide-left-small, uk-animation-slide-right-medium; queued: true">
+                                        Or Upload Video </a>
+                                </div>
+
+                            </div>
+                           <hr style="height:1px;">
+
+                        </div>
+
+
+</center>
+                  </div>
+
+                  </div>
+               </div>
+         </section>
+
+
+
+  {% endblock %}

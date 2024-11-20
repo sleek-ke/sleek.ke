@@ -1,0 +1,135 @@
+{% extends 'plug/core.html' %}
+{% block head_title %}Sleek.ke - P2P Assets Exchange{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<section style="font-family:Comic Sans Mn;margin-top:10vh;background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);"
+         class="home-section align-items-center sec-padding " id="home" xmlns="">
+            <div  class="container">
+               <div class=" align-items-center">
+                  <div  class="section-title" >
+    <center>
+
+    <img style="width:100px; height:100px ;border-radius:100%; "  src=" {{ user.address.profileimg.url }} " alt="profile-img"> <br>
+    <h4 style="color:#f0f9f8;font-size:100%;font-weight:bold;font-family:Mv Boli;">{{user.first_name}}
+        <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>
+</h4>
+        <br><a class="btn" style="background-color:#6BBE4E;color:#f6f4f0;" href="/plug/wasee/"> Ma-Plug</a>
+          <a style="background-color:#001100;color:#f5f0f9;" href="plug/{{ user.address.slug }}" target="_blank" class="btn">Mboa-ID</a>
+      <a href="/admin" style="margin-top:10px;" target="_blank" class="btn"> My Earnings</a>
+</center>
+
+                  <div class="home-image">
+				   <div  class=" img-box" ></div>
+                        <div style="margin-bottom:20px;font-size:80%;opacity: 90%;"></div>
+							<div class=" admin-name timeline-info">
+
+				<form action="/plug/follow" method="POST">
+					{% csrf_token %}
+							<div style="margin:5% -10px;display: flex; flex-direction: row;">
+               <div style="padding:10% 2%;width:80%; border-radius:10px; height:10vh;" class="bty">
+				   <span style="color: white; font-size: 100%"><b>No Blog</b></span>
+					</div>
+               <div style="padding:10% 2%;width:70%; border-radius:10px; height:10vh;margin-left:1px" class="bty"> {% if user_post_length == 0 %}
+					<span style="color: white; font-size: 100%"><b>No Post </b></span>
+					{% elif user_post_length == 1 %}
+					<span style="color: white; font-size: 100%"><b>{{user_post_length}} Post</b></span>
+					{% else %}
+					<span style="color: white; font-size: 100%"><b>{{user_post_length}} Posts</b></span>
+					{% endif %}</div>
+               <div style="width:80%; border-radius:10px;padding:10% 2%; height:10vh;margin-left:1px" class="bty">{% if user_followers == 0 or user_followers == 1 %}
+					<span style="color: white; font-size: 100%"><b>{{user_followers}} follower</b></span>
+					{% else %}
+					<span style="color: white; font-size: 100%"><b>{{user_followers}} followers</b></span>
+					{% endif %} </div>
+               <div style="padding:10% 2%;width:80%; border-radius:10px; height:10vh;margin-left:-2px;text-align:center;" class="bty"><span style="color: white; font-size: 100%;"><b>{{user_following}} following</b></span>
+ </div>
+              </div>
+					<div class="add-btn timeline-info">
+						<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
+<button  class="bty " style="background-color:#ffffff00; border:2px solid #6BBE4E;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
+   <a style="color:#6BBE4E;" href="/P2P/Bots"><p>My Earnings {{user.user_posts}}</p> </a></button>
+                                 </div>
+						{% if user_profile == user.address.slug %}
+	<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
+<button  class="bty " style="background-color:#ffffff00; border:2px solid #6BBE4E;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
+   <a style="color:#6BBE4E;" href="/setting"> Account Setting</a></button>
+                                 </div>
+{% else %}
+	<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
+<button  class="bty "  style="background-color:#ffffff00; border:2px solid: #ffc0cb;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
+   <a  data-ripple=""  style="color:#6BBE4E;"> {{button_text}} </a></button>
+                                 </div>
+	{% endif %}
+
+                       	<p>  <br>{{user.Post}}</p>
+					<input class="btn" type="hidden" value="{{ user.pk }}" name="follower" />
+					<input  class="btn" type="hidden" value="{{ user_profile.pk }}" name="user" />
+
+					</div>
+				</form>
+                                </div>
+                      <div class="timeline">
+                           <div class="timeline-item">
+                              <h4 style="font-family:Comic Sans Mn;color :#f6f8f0;">====ADVERTISE HERE ====<br>  <span>MboaEx - OpenSoko </span></h4>
+                              <span style="font-family:Comic Sans Mn;color :#f6f8f0;" class="date"> Market Place You can Trust Everything You Looking For in one place. </span>
+                              <div class="row tab-content active" id="cards" style="margin-top:10vh;font-family:Comic Sans Mn;color:#f8f7f9;">
+                               <div class="portfolio-item">
+                                    <div class="portfolio-item-thumbnail">
+                                       <img src="{% static 'img/mobile-money.jpg' %}" alt="portfolio">
+                                    </div>
+                                    <h3 class="portfolio-item-title"> </h3>
+                                    <button type="button" class="btn ">Visit Shop </button>
+                                    <div class="portfolio-item-details">
+                                       <div class="description">
+                                          <p>Some random text to tell about your advert</p>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                               <div class="portfolio-item">
+                                    <div class="portfolio-item-thumbnail">
+                                       <img src="{% static 'img/mobile-money.jpg' %}" alt="portfolio">
+                                    </div>
+                                    <h3 class="portfolio-item-title"> </h3>
+                                    <button type="button" class="btn"><a href="/openSoko">Visit Shop </a></button>
+                                    <div class="portfolio-item-details">
+                                       <div class="description">
+                                          <p>Some random text to tell about your project</p>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                               <div class="portfolio-item">
+                                    <div class="portfolio-item-thumbnail">
+                                       <img src="{% static 'img/mobile-money.jpg' %}" alt="portfolio">
+                                    </div>
+                                    <h3 class="portfolio-item-title"> </h3>
+                                   <button type="button" class="btn "><a href="/openSoko">Visit Shop </a></button>
+                                    <div class="portfolio-item-details">
+                                       <div class="description">
+                                          <p>Some random text to tell about your product</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                                    </div>
+                             </div>
+</div>
+                       <div class="about-tabs text-md lg:flex-grow" style=" box-shadow:20px 4px 100px #fff; background-color:#ffffff00; margin-left:5px; border-radius:7px ;width:95%;margin-bottom:20px;margin-left:20px;height:5vh;" >
+                        <button  class="bty tab-item active flex-grow "> <a href="/plug/profile/{{ user.address.slug }}"> Blogs </a></button>
+                        <button  class="bty tab-item active flex-grow "> <a href="/plug/Mali"> Products </a></button>
+                        <button  class="bty tab-item active flex-grow "> <a href="/plug/posts"> Posts </a></button>
+                 </div>
+							</div>
+						</div>
+</div>
+                       <div style=" margin-top:10%; margin-bottom:2px;" >
+
+                       {% include 'plug/Plug_Products.html' %}
+                       </div></div>
+<script src="{% static 'js/main.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+</section>
+  {% endblock %}

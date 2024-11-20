@@ -1,0 +1,77 @@
+{% extends 'plug/core.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+
+{% block content %}
+{%load static%}
+<section class="home-section align-items-center" style="margin-top:5vh;color:#000;font-weight:bold; font-family:Comic Sans Mn;background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="about-img ">
+                        <pre style="border:none;" class="bty">{{ file_content }}</pre>
+                <div style=" box-shadow:2px 3px 60px #000; background-image:url({% static 'img/shootCenterBanner.png'%}); background-color:#f6f4f0;width:100%; height:35vh;text-align:center;" class="bty"> <a style="font-size:90%;color:#008800;" href="/wallet/ID">
+                    <img style=" margin-left:10px; width:60px;  height:50px;"   src="{%static '/img/mpesa.png'%}">  <p style="color:#001100;"><b>Wooza!</b>
+                    </p><h2  style="color:#001100; font-weight:bold;font-family:Comic Sans Ms;"> <br>
+                   Dear {{ user.first_name}}, Complete the Transaction By Entering your Secret 4 Digit M-Pesa Pin . On the prompt Notification Send to your Phone With the Number You  Provided.   <b style="font-weight:bold;color:red;"> 0{{ user.address.postal_code }}</b><br>Click Send
+                  <br>
+                </h2>
+                    <a  style="color:#001100;margin-top:2px; border:1px solid;width:100%;" href="/setting"  class="btn">Check Account Balance</a>  </a>
+                    </div>
+</div>
+                         <div class="about-text ">
+                              <div class="timeline">
+                           <div class="timeline-item"><h2 class="btn" style="font-weight:bold;"> Transaction Tracking </h2>
+<div class="  w-full mt-10">
+
+
+                       <div style="font-weight:bold;" class="table-responsive text-nowrap">
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Mpesa No.</th>
+              <th scope="col">Mpesa Code</th>
+            <th scope="col">Description</th>
+            <th scope="col">Approved</th>
+<!--            <th scope="col">Date Delivered</th>-->
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="font-weight:bold;">
+{% for data in data%}
+            <td> <a href="{% url 'core:order-summary' %}">  MBOA-{{ data.phone_number}} </a></td>
+             <td>{{ data.amount}}</td>
+            <td>{{ order.received}}</td>
+            <td>{{ order.being_delivered}}</td>
+<!--            <td>{{ order.ordered_date}}</td>-->
+            <td>{{ order.ref_code_confirm }}</td>
+            <td>
+             </td>
+        </tr>
+          </table>
+            <div style="height:30vh;flex-direction:column;" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex items-center justify-between">
+              {% if order.received == False %}
+             <p>  Order awaiting Approval </p>
+<button style="width:80%;background-color:#6BBE4E;"  class=" btn  bg-gradient-to-br from-black-500 py-3 rounded-md text-green text-xl to-green-400 w-full"><a href="/delivery/Qrcode/{{order.id}}">Generate Qr Code</a></button>
+
+                  <button  style="margin-top:10%;background-color:#DCECC8;border-radius:20px; width:100%; "  class="btn btn-md mb-4 my-2 font-family:Comic Sans Mn; font-weight-bold black-text p">
+             <a href="/request-refund">Request Refund |
+             </a>  </button>
+                {% else %}
+               <p> Order Approved </p>
+                  <button style="width:80%;background-color:#6BBE4E;"  class=" btn view-project-btn bg-gradient-to-br from-black-500 py-3 rounded-md text-green text-xl to-green-400 w-full">Pay</button>
+                  <button style="width:80%;background-color:#6BBE4E;"  class=" btn  bg-gradient-to-br from-black-500 py-3 rounded-md text-green text-xl to-green-400 w-full"><a href="/delivery/<user>/Qrcode/?{{order.id}}">Generate Qr Code</a></button>
+
+                {% endif %}
+            </div>
+                           {% endfor %}
+                           </div>
+                 </div>
+            </div>
+                              </div></div></div></div></div></section>
+
+     {% endblock %}

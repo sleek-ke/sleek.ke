@@ -1,0 +1,297 @@
+{% extends 'plug/core.html ' %}
+{% block head_title %}Sleek.ke - Digital  Assets Exchange{% endblock %}
+
+{% block content %}
+
+  {%load static%}
+<section class="home-section align-items-center" style="background-color:rgba(0,0,0,0.2);
+         color:#000; font-weight:bold;opacity:100%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);margin-top:10vh;"
+         id="home" xmlns="http://www.w3.org/1999/html">
+            <div  class="container">
+               <div class="row align-items-center">
+                  <div  class="home-txt">
+
+<center>
+    <!-- post 1-->
+    <form action="upload" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    <p class="my-3 leading-6">
+                                    </p>
+           <div style="width:100%;" class="flex justify-between items-center px-4 py-3">
+
+                            <div  class="flex flex-1 items-center space-x-4">
+                                    <a href="#">
+                                        <div  class="bg-gradient-to-tr from-yellow-600 to-pink-600 p-0.5 rounded-full">
+                                            <img src="{{ user.address.profileimg.url }}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                        </div>
+                                    </a>
+                                    <span class="block font-semibold "><a href="/profile/{{post.user}}">  Niaje {{user.first_name}},</a></span>
+                                </div>
+                              <div>
+                              </div>
+           </div><textarea style="font-family:Comic Sans Mn;width:80%;color:#001100;border-radius:7px;margin-top:20px;font-weight:bold;" class="bty button soft-warning small" name="caption" placeholder="Share Your Money Ideas..." ></textarea>
+                                        <br>
+                                    <div  style="width:90%;" >
+                                         <input  style="margin-top:20px;width:90%;" class="btn" type="file" name="image_upload">
+                <br>
+                                        </div>
+
+
+                                        <button style="border:2px dotted #000;margin-top:20px;width:90%; font-weight:bold;background-color:#6BBE4E;" class=" bty button" type="submit" >Upload</button>
+
+                                    </form>
+<hr style="height:1px;">
+
+                        {% for post in  object_list%}
+
+     <div style="padding:2%;margin:5%;width:90%;" class="bg-transparent shadow rounded-md  -mx-2 lg:mx-0">
+                            <!-- post header-->
+
+                            <div style="width:100%;" class="flex justify-between items-center px-4 py-3">
+                                <div  class="flex flex-1 items-center space-x-4">
+                                    <a href=profile/{{post.user.id}}/{{post.user}}">
+                                        <div  style="background-color:none;display:flex;flex-direction:row;" class=" p-0.5 rounded-full" >
+                                             <img src="{{ post.user.profileimg.url }}" class="bg-gray-200 border border-white rounded-full w-8 h-8">
+                                                  <div  style="display:flex;flex-direction:column;">
+                                                   <span style="font-family:Comic Sans Mn;margin-left:5%;font-size:120%;" class="block font-semibold ">
+                                                        {{post.user.Nick_Name}}
+                                                    </span>
+                                           <p style="font-family:Comic Sans Mn; color:green;"> 0{{post.user.postal_code}}</p>
+                                                      </div>
+
+                                        </div>
+
+                              </a>
+                                </div>
+                              <div>
+                                <a> <i class="icon-feather-more-horizontal text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "></i> </a>
+                                <div class="bg-white w-40 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500  text-base border border-gray-100  "  uk-drop="mode: hover;pos: center">
+                                    <ul class="space-y-1">
+                                        <li>
+                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                           <i class="uil-follow-alt mr-1"></i> Follow
+                                          </a>
+                                      </li>
+                                      <li>
+                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                           <i class="uil-share-alt mr-1"></i> Share
+                                          </a>
+                                      </li>
+                                     <li>
+                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                           <i class="uil-edit mr-1"></i>  Edit Post
+                                          </a>
+                                      </li>
+                                        <li>
+                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                          <i class="uil-favorite mr-1"></i> save
+                                          </a>
+                                      </li>
+                                       <li>
+                                          <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md ">
+                                           <i class="uil-comment-slash mr-1"></i>   No comments
+                                          </a>
+                                      </li>
+                                       <li>
+                                             <form action="{% url 'like_post' %}" method="POST">
+                                                 {% csrf_token %}
+                                                   <input hidden type="text" id="post_Id"  value="{{post.id}}" name="post_Id" placeholder="{{post.id}}" class="bty form-control" readonly required    style="font-family:Comic Sans Mn; width:80%; font-weight:bold;color:#001100;font-size:16px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; "><br>
+                                                 <button class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md "
+                                                         style="font-family:Comic Sans Mn;font-weight:bold;">
+                                                     <i class=" fas fa-heart  mr-1 "></i> |
+                                                     {% if post.no_of_likes == 0 %}
+                                              <p style="margin-right:5%;">No </p>
+                                                     {% elif post.no_of_likes == 1 %}
+                                                     <p>Liked by {{post.no_of_likes}} person</p>
+                                                     {% else %}
+                                                     <p>Liked by {{post.no_of_likes}} people</p>
+                                                     {% endif %} likes
+                                                 </button>
+                                             </form> </li>
+                                      <li>
+                                          <a href="#" style="color:red;" class="flex items-center px-3 py-2 hover:bg-red-200 hover:text-red-800 rounded-md ">
+                                        <i class="uil-trash-alt mr-1"></i>  Delete Post
+                                          </a>
+                                      </li>
+                                        </ul>
+                                    <hr style="height:0.6px;">
+                                    <ul class="space-y-1">
+                                            {% if  user.address.postal_code  ==  post.user.postal_code %}
+                                    <button class="btn">Dashboard</button>
+                                       {% else %}
+                                    <li>
+                                          <a href="#" style="color:green;" class="flex items-center px-3 py-2 text-green-500 hover:bg-red-100 hover:text-green-500 rounded-md ">
+                                           <i class=" mr-1 text-2xl hover:bg-gray-200 rounded-full p-2 transition -mr-1 "><img style=" width:80px;  height:40px;"   src="{%static '/img/mpesa.png'%}"></i>
+                                          </a>
+                                         <div class="bg-white w-40 shadow-md mx-auto p-2 mt-12 rounded-md text-gray-500  text-base border border-gray-100  "  uk-drop="mode: hover;pos: center">
+                                        <form action="{% url 'post-pay-bill' %}" method="POST"
+                                              style="background-image:url({% static 'img/shootCenterBanner.png'%});border: 3px solid #001100;opacity:100%;width:100%;color:white;margin: 2px; padding:5%; border-radius:36px;">
+<div style="display:flex;flex-direction:row;">
+<p style=" font-size:100%; font-weight:500px; color: #001100;margin-top:10px;margin-right:6px; width:100%;"> <img style="margin-bottom:5px; position:center; box-shadow: 34px 8px 80px green; width:40px; height:40px;border-radius: 100%;" src="{% static 'img/Mboa Academy.jpg' %} " > Mboapay</p>
+<img style=" margin-left:6px; width:100px;  height:50px;"   src="{%static '/img/mpesa.png'%}">
+</div>
+{% csrf_token %}
+
+<div style="margin-top:30px;">
+    <input type="text" id="post_slug"  value="{{post.id}}" name="post_slug" placeholder="{{post.id}}" class="bty form-control" readonly required    style="font-family:Comic Sans Mn; width:80%; font-weight:bold;color:#001100;font-size:16px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; "><br>
+        <input type="text"  id="account_reference" value="To  0{{post.user.postal_code}}  {{post.user}}" readonly required name="account_reference" class=" btn form-control" placeholder="Mboa-Id :{{user.account}} " style="font-family:Comic Sans Mn; width:80%; font-weight:bold;color:#001100;font-size:16px;text-align:center; margin-top:20px;border-radius:10px;height:7vh; ">
+    <input type="tel" id="phone_number"  value="0{{user.address.postal_code}}" name="phone_number" placeholder="phone number" class="bty form-control" required    style="font-family:Comic Sans Mn; width:80%; font-weight:bold;color:#001100;font-size:16px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; "><br>
+   <input type="number" id="amount"  value="100" required name="amount" class=" btn form-control" placeholder="Amount " style="font-weight:bold;color:green;font-family:Comic Sans Mn;font-size:16px;text-align:center;width:80%; height:7vh;margin-top:20px; margin-bottom:30px;border-radius:10px;border:2px solid #6BBE4E;" autofocus ></div>
+    <button type="submit" class="bty" style="width:80%;font-weight:bold; border-radius:30px; color:#001100; background: #C9FEC0; cursor:pointer;border:2px solid #000;">Tuma</button>
+
+</form>
+                                    </div>
+                                        </li>
+                                           </ul>
+                                           {% endif %}
+                                </div>
+                              </div>
+                            </div>
+
+                            <div  uk-lightbox class=" wow fadeIn ">
+                                {% if post.image %}
+                                 <a href="{{post.image.url}}">
+                              <img style="width:100%;border-radius:10px;" src="{{ post.image.url }}" alt="{{ post.image.url }}">
+                               </a>
+                                {% else %}
+<!--                                <a href="/page">  </a>-->
+<!--                                    <video poster="{% static 'img/Mboa Academy.jpg '%}" preload controls loop autoplay>-->
+                                 <a href="{% static 'video/golden_-_48569 (Original).mp4'%}">
+                                <video style="border-radius:10px;" src="{% static 'video/peterpandev_1679342884133.mp4'%}" loop preload controls type='video/mp4:codecs="avcl.42E01E,mp4a.40.2"' poster="{% static 'img/Mboa Academy.jpg '%}">
+<!--                                        <source src="{% static 'video/iPhone.mp4 '%}" type='video/mp4:codecs="vp8, vorbis"' type='video/mp4:codecs="avcl.42E01E,mp4a.40.2"' >-->
+<!--                                       {% static 'video/bible_-_107178 (Original).mp4 '%}-->
+<!--                                       {% static '__photo_._factory___1696431983028.mp4 '%}-->
+<!--                                       {% static 'codingnails7_1680011365665.mp4 '%}-->
+<!--                                       {% static 'peterpandev_1679342884133.mp4'%}-->
+<!--                                       {% static 'rita_codes_1679316497888.mp4'%}-->
+
+                                    </video>
+                                 </a>
+                                {% endif %}
+
+                            </div>
+
+                            <div class="py-3 px-4 space-y-3">
+                     <div class="flex space-x-4 lg:font-bold">
+
+
+                         <a href="#" class="flex items-center px-3 py-2 hover:bg-gray-200 hover:text-gray-800 rounded-md space-x-2 flex-1 justify-center ">
+                                           <i class=" fas fa-share mr-1"></i>
+                                          </a>
+                           <div class="flex items-center">
+                                        <img src="{{ user.address.profileimg.url }}"  alt="" class="w-6 h-6 rounded-full border-2 border-white ">
+                                        <img src="{{ user.address.profileimg.url }}"  alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
+                                        <img src="{{ user.address.profileimg.url }}"  alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2">
+                                    </div>
+
+                          {% if post.image %}
+                                    <a href="{{ post.image.url}}" class="flex items-center space-x-2 flex-1 justify-center" download>
+                         <i class=" fas fa-download float-right"></i>
+                                    </a>
+                            {% endif %}
+                                  </div>
+
+
+
+                                <h1 style="font-family:Comic Sans Mn;font-size:130%">
+                                    <a href="/profile/{{post.user}}"><strong>{{post.user.account}}</strong></a> {{post.caption}}
+                                </h1>
+
+                            <div class="flex items-center space-x-3">
+<!--                                     <div class="flex items-center"> -->
+<!--                                         <img src="{{ user.address.profileimg.url }}"  alt="" class="w-6 h-6 rounded-full border-2 border-white "> -->
+<!--                                         <img src="{{ user.address.profileimg.url }}"  alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2"> -->
+<!--                                         <img src="{{ user.address.profileimg.url }}"  alt="" class="w-6 h-6 rounded-full border-2 border-white  -ml-2"> -->
+<!--                                     </div> -->
+                                    <div >
+<!--                                          <strong> Digital Assets  </strong> -->
+                                        <div class="divide-gray-300 divide-gray-50 divide-opacity-50 divide-y px-4 ">
+
+                                {% for suggestion in suggestions_username_profile_list %}
+                                <div class="flex items-center justify-between py-3">
+                                    <div class="flex flex-1 items-center space-x-4">
+                                        <a href="/profile/{{suggestion.user}}">
+                                            <img src="{{suggestion.profileimg.url}}" class="bg-gray-200 rounded-full w-10 h-10">
+                                        </a>
+                                        <div class="flex flex-col">
+                                            <span class="block capitalize font-semibold"> {{suggestion.user}} </span>
+                                            <span class="block capitalize text-sm"> {{suggestion.bio}} </span>
+                                        </div>
+                                    </div>
+
+                                    <a href="/profile/{{suggestion.user}}" class="border border-gray-200 font-semibold px-4 py-1 rounded-full hover:bg-pink-600 hover:text-white hover:border-pink-600 "> View User </a>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                                    </div>
+                                </div>
+<!-- <div class="border-t pt-4 space-y-4 ">&ndash;&gt;-->
+<!--                                    <div class="flex">-->
+<!--                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">-->
+<!--                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">-->
+<!--                                        </div>-->
+<!--                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">-->
+<!--                                            <p class="leading-6">Y'all like billie eillish? <urna class="i uil-heart"></urna> <i-->
+<!--                                                    class="uil-grin-tongue-wink"> </i> </p>-->
+<!--                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="flex">-->
+<!--                                        <div class="w-10 h-10 rounded-full relative flex-shrink-0">-->
+<!--                                            <img src="{% static 'assets/images/avatars/avatar-1.jpg' %}" alt="" class="absolute h-full rounded-full w-full">-->
+<!--                                        </div>-->
+<!--                                        <div class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">-->
+<!--                                            <p class="leading-6">She's my favourite <i class="uil-grin-tongue-wink-alt"></i>-->
+<!--                                            </p>-->
+<!--                                            <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+                               <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
+                                    <input style="font-family:Comic Sans Mn;" type="text" placeholder="Banja Na Plug..." class="btn bg-transparent max-h-10 shadow-none">
+                                    <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
+                                        <a href="#"> <i class="uil-image"></i></a>
+                                        <a href="#">  <i class="uil-phone"></i> </a>
+                                        <a href="#"> <i class="uil-video"></i></a>
+                                    </div>
+                                </div>
+                               <p style="font-family:Comic Sans Mn;"> {{post.created_at}}</p>
+
+                            </div>
+
+                        </div>
+                        {% endfor %}
+
+    <form action="upload" method="POST" enctype="multipart/form-data" >
+                                    {% csrf_token %}
+                                    <p class="my-3 leading-6">
+                                    </p>
+           <div style="width:100%;" class="flex justify-between items-center px-4 py-3">
+                                     <div  style="width:90%;" >
+                                         <input  style="margin-top:20px;width:90%;" class="btn" type="file" name="image_upload">
+                <br>
+                                        </div>
+           </div><textarea style="font-family:Comic Sans Mn;width:80%;color:#001100;border-radius:7px;margin-top:20px;font-weight:bold;" class="bty button soft-warning small" name="caption" placeholder="Share Your Money Ideas..." ></textarea>
+                                        <br>
+
+
+
+                                        <button style="border:2px dotted #000;margin-top:20px;width:90%; font-weight:bold;background-color:#6BBE4E;" class=" bty button" type="submit" >Upload</button>
+
+                                    </form>
+</center></div>
+                  </div>
+               </div>
+
+ <!-- Scripts
+    ================================================== -->
+    <script src="{% static 'plug/assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'plug/assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'plug/assets/js/uikit.js' %}"></script>
+    <script src="{% static 'plug/assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'plug/assets/js/custom.js' %}"></script>
+	<script src="{% static 'plug/js/script.js' %}"></script>
+    </section>
+    {% endblock %}

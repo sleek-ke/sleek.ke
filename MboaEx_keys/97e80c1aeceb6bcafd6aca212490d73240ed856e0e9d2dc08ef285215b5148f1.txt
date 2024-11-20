@@ -1,0 +1,2 @@
+Private key: 97e80c1aeceb6bcafd6aca212490d73240ed856e0e9d2dc08ef285215b5148f1
+Wallet address / Public key: EsksvaIt354SnfBIqhTWxzPxG52mYQXTe9ATp88f3BHbPciv0l1lL6YkP4woCPCkKqNQ7MZUQDlQqpZS4fIzaw==

@@ -1,0 +1,54 @@
+ {% extends 'admin/base.html' %}
+{% load static %}
+ 	  <link class="bty" style="width:50px;height:50px;border-radius:100%;" rel="shortcut icon" href="{% static 'img/Mboa Academy.jpg '%}"  id="icon" >
+  <section class="home-section align-items-center sec-padding " style="margin-top:10vh;background-color:rgba(0,0,0,0.2);opacity:100%; border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);"
+          id="home" xmlns="">
+            <div  class="container">
+               <div class=" align-items-center">
+                  <div  class="section-title" >
+            <div  style="Background-color:transparent;" class="container">
+{% block branding %}
+    <center>
+   <img src="{% static 'img/Mboa Academy.jpg' %}" style=" width:100px;height:100px; border-radius:100%;" alt="" class=" brand_img">
+      <br>
+    <h1  id="head" style="margin-top:5vh;color:#f0f9f8;font-size:100%;font-weight:bold;font-family:Comic Sans Mn;"> <a href="/admin">Sleek.ke
+        <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i>
+      <h2 style="  margin-left:10px; margin-top:20px; font-size:90%; color:#000;font-weight:bold"> Just simple!</h2>
+  </a></h1>
+
+        <form  action="/plug/follow" method="POST">
+					{% csrf_token %}
+							<div style="margin:5%;display: flex; flex-direction: row;">
+               <div style="border:2px #001100 solid;padding:2%;width:80%; border-radius:10px; height:10vh;margin-left:1px" class="bty"> </div>
+               <div style="border:2px #001100 solid;width:80%; border-radius:10px;padding:2%; height:10vh;margin-left:1px" class="bty"> </div>
+               <div style="border:2px #001100 solid;padding:2%;width:80%; border-radius:10px; height:10vh;margin-left:1px;text-align:center;" class="bty"></div>
+              </div>
+
+
+				</form>
+        <div class="add-btn timeline-info">
+        				<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
+<button  class="bty " style="background-color:#ffffff00; border:2px solid #000;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
+    <a style="color:#6BBE4E;" href="admin/Dashboard"><p>Dashboard</p> </a></button>
+                                  </div>
+        				<div style=" border-bottom:none; margin-bottom:2px; border:none; " >
+<button  class="bty " style="background-color:#6BBE4E; border:2px solid #001100 ;font-weight: bold;font-size: 14px;color:#f6f4f0; border-radius: 40px; height:5vh; padding-bottom:5%; margin-top:5px;  width:80%; " >
+    <a style="color:#f9f7f0;" href="/wallet"><p>View Site</p> </a></button>
+                                  </div>
+        </div>
+{% endblock %}
+                <div class="lg:container lg:mx-auto">
+                {% include 'core/messages.html' %}
+                {% block content %}
+                <!-- Add content here -->
+                {% endblock %}
+            </div>
+
+
+{% block extrastyle %}
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
+    </center>
+                  </div>
+               </div>
+               </div></div></section>

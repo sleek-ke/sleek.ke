@@ -1,0 +1,2 @@
+/Hey,/Wallet Address Public Key:wA6TukZSlG+LRlU4F8nYlLEN0prAXg9xasr4irYHhAHGgql+SoBfGwkxOu19EB1+UFYeBWyJaVRGvGfjmoeDiA== 
+Order Confirmation  Secret(Don't Share or disclose This to anyone.) / Private Key:6f32325f3977900c2011f79dbd631024d1f5121b7d49e9f4b81fd353a78ced99 

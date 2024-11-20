@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reply Message</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        .reply-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .reply-form textarea {
+            width: 100%;
+            height: 200px;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        .reply-form button {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .reply-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reply to Buyer</h1>
+    <div class="reply-form">
+        <form method="POST" action="{% url 'conversation:send_message' %}">
+            {% csrf_token %}
+            <input type="hidden" name="receiver_id" value="{{ notification.seller.id }}">
+
+            <textarea name="message_content" rows="3" placeholder="Write a message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>

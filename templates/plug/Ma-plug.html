@@ -1,0 +1,178 @@
+{% extends 'plug/core.html' %}
+{% block head_title %}Sleek.ke Ma-Plug  Wa Power{% endblock %}
+
+{% block content %}
+{%load static%}
+ <section   style="margin-top:6vh;" class="home-section align-items-center theme-layout" id="Ma-Plug">
+            <div style="width:90vw;" class="container">
+               <div class="row align-items-center">
+                  <div  class="home-img">
+<center>
+<style>
+                body{margin-top:20px;
+                background-color: #eee;
+                }
+
+                .search-result-categories>li>a {
+                    color: #b6b6b6;
+                    font-weight: 400
+                }
+
+                .search-result-categories>li>a:hover {
+                    background-color: #ddd;
+                    color: #555
+                }
+
+                .search-result-categories>li>a>.glyphicon {
+                    margin-right: 5px
+                }
+
+                .search-result-categories>li>a>.badge {
+                    float: right
+                }
+
+                .search-results-count {
+                    margin-top: 10px
+                }
+
+                .search-result-item {
+                    padding: 20px;
+                    background-color: #fff;
+                    border-radius: 4px
+                }
+
+                .search-result-item:after,
+                .search-result-item:before {
+                    content: " ";
+                    display: table
+                }
+
+                .search-result-item:after {
+                    clear: both
+                }
+
+                .search-result-item .image-link {
+                    display: block;
+                    overflow: hidden;
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px
+                }
+
+                @media (min-width:768px) {
+                    .search-result-item .image-link {
+                        display: flex;
+                        margin: -20px 0 -20px -20px;
+                        float: left;
+                        width: 200px
+                    }
+                }
+
+                @media (max-width:767px) {
+                    .search-result-item .image-link {
+                        max-height: 200px
+                    }
+                }
+
+                .search-result-item .image {
+                    max-width: 100%
+                }
+
+                .search-result-item .info {
+                    margin-top: 2px;
+                    font-size: 12px;
+                    color: #999
+                }
+
+                .search-result-item .description {
+                    font-size: 13px
+                }
+
+                .search-result-item+.search-result-item {
+                    margin-top: 20px
+                }
+
+                @media (min-width:768px) {
+                    .search-result-item-body {
+                        margin-left: 200px
+                    }
+                }
+
+                .search-result-item-heading {
+                    font-weight: 400
+                }
+
+                .search-result-item-heading>a {
+                    color: #555
+                }
+
+                @media (min-width:768px) {
+                    .search-result-item-heading {
+                        margin: 0
+                    }
+                }
+                </style>
+            <div style="margin-left: 50px; margin-right: 50px;">
+
+
+
+                <div class="container">
+                <div class="row ng-scope">
+                    <div class="col-md-3 col-md-push-9">
+                          <form style="margin-top:5vh;" action="/plug/Ma-Plug/" method="POST">
+                    {% csrf_token %}
+                         <div  Style="display:flex;flex-direction:row;">
+
+
+                                <button style="background-color:#ffffff00;" type="submit">
+                                     <input class="btn " type="text" name="username" placeholder="Search...">&nbsp; &nbsp;
+
+                                </button>
+                       </div>
+                          </form>
+                        <br>
+                    </div>
+                    <div class="col-md-9 col-md-pull-3">
+
+                        {% for users in username_profile_list %}
+                        <div class="search-result-item">
+                            <a class="image-link" href="/plug/profile/{{users.slug}}"><img class="image" src="{{users.profileimg.url}}">
+                            </a>
+                            <div class="search-result-item-body">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <h4 class="search-result-item-heading"><a href="/plug/profile/{{users.slug}}"><b>{{users.user.first_name}} {{users.user.account}}</b></a></h4>
+                                            <p class="info">{{users.user}}</p>
+                                        <p class="info">{{users.location}}</p>
+                                        <p class="info">{{users.address}}</p>
+                                        <p  class="description">{{users.bio}}</p>
+
+                                    </div>
+                                     <div class="col-sm-3 text-align-center">
+                                        <a class=" btn-primary btn-info btn-sm" href="/plug/profile/{{users.slug}}">0{{users.postal_code}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                </div>
+            </div>
+
+ <!-- Scripts
+    ================================================== -->
+    <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'assets/js/uikit.js' %}"></script>
+    <script src="{% static 'assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+    <script src="{% static '../../unpkg.com/ionicons%405.2.3/dist/ionicons.js' %}"></script>
+
+</center>
+                  </div>
+               </div>
+            </div>
+ </section>
+ {% endblock %}

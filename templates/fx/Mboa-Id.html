@@ -1,0 +1,173 @@
+{% extends 'core/base.html' %}
+{%load admin_list%}
+{% load i18n %}
+{% include 'core/messages.html'%}
+{% load  static %}
+{% block content %}
+         <section  style="font-family:Comic Sans Mn;background-color:rgba(0,0,0,0.2);opacity:100%; backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id="home">
+            <div class="container" >
+                 <div class="row align-items-center">
+                <div class="about-img ">
+                      <img class="img-fluid" style="z-index:10;width:100%; height:60vh ;opacity:10%; border-radius:26px;margin-top:-14vh;"   src="{{user.address.profileimg.url}}"  alt="Mboa Technologies | {{ user.first_name }}">
+                <div class="contact-info-item" style="margin-top:-25vh;margin-left:10%;">
+                        <div class="social-links">
+                           <a href="#" target="_blank"><i class="fab fa-google"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-reddit"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-telegram"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-microsoft"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-stripe"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-paypal"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-shopify"></i></a>
+                           <a href="#" target="_blank"><i class="fab fa-snapchat"></i></a>
+
+                        </div>
+
+                     </div>
+                        <div>
+                            <img class="img-fluid" style="margin-top:-2vh;margin-left:20px;width:50px; height:50px ; border-radius:100%; opacity:100%; " src=" {{user.address.profileimg.url}}"  alt="Profile Picture for {{ user.first_name }}">
+                           <p  style="margin-left:50px;margin-top:-2vh;font-size:80%;z-index:10px;backdrop-filter:blur(10px);font-weight:bold;background-color:rgba(0,0,0,0.6);border:2px #1DA756 solid;color:#f8f9f0 ;" class="btn view-project-btn">
+                           <a href="{{ item.get_absolute_url }}">
+                </a> Sleek-ID:{{user.account.account_no}}
+                        </p>
+                              </div>
+                       <div class="BotScripts" style="border-radius:10px;padding:1.5%;backdrop-filter:blur(10px); background-color:#ffffff00;display: flex;margin-top:10px;overflow:hidden;">
+                            <div class="btn" style="  border:solid 2px rgba(255,255,255,0.2); background-color:#fff; border-radius:7px ;margin-left:2px; height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:200px  4px 200px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                              <div class="btn" style=" border:solid 2px rgba(255,255,255,0.2); box-shadow:200px  4px 200px #000; background-color:#f6f4f0; border-radius:7px ; margin-left:5px;height:15vh;width:50%;">  </div>
+                            <div class="btn" style="box-shadow:200px  4px 200px #fff; background-color:#ffffff00; border-radius:7px ; margin-left:5px; height:15vh;width:50%;">  </div>
+                     </div>
+                          <a style="margin:5%;" href="#contact" class="btn link-item">My  Twin </a>
+
+                    </div>
+
+                  <div class="about-text ">
+                        <div class="row">
+                       <div style="margin-top:10%; margin-bottom:2px;" class=" text-md lg:flex-grow">
+                      <div style="padding:5%; box-shadow:20px 4px 100px #fff; background-color:#ffffff00; margin-left:5px; border-radius:7px ;margin-bottom:20px;margin-left:5px;" class="about-tabs text-md lg:flex-grow">
+                        <button   type="button" class="tab-item active " data-target="#education">Official</button>
+                        <a href="#experience" type="button" class="tab-item" data-target="#experience">Certificates | Educational</a>
+                          <a type="button" class="tab-item" data-target="#Bitcoin">Digital Twin</a>
+                 </div>
+                     <!-- Cards Section Start -->
+                     <div class="tab-content active" id="cards">
+                        <div class="timeline">
+                           <div class="timeline-item">
+                              <span  class=" date">Sleek -ID</span>
+                              <h4 style="font-weight:bold;">{{user.account.account_type}} <span>{{user.account.account_no}}</span></h4>
+                              <p>Handle all our Digital Credentials From One Convenient account </p>
+                              <div style="margin-top:10%;" class="portfolio-item">
+                                    <div class="portfolio-item-thumbnail">
+                                       <img src="{% static 'img/404.jpg' %}" alt="portfolio">
+                                    </div>
+                                    <h3 class="portfolio-item-title"> </h3>
+                                    <button type="button" class="btn view-project-btn">3D View </button>
+                                    <div class="portfolio-item-details">
+                                       <div class="description">
+                                          <p>Some random text to tell about your project</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                                    </div>
+                            </div>
+                          {% for cardy in object_list %}
+                         {% if cardy.account == user.account %}
+                             <div class="timeline">
+                           <div class="timeline-item">
+                              <span class="date">{{cardy.cardy_type}} {{cardy.account}}</span>
+                              <h4 style="font-weight:bold;" >{{cardy.cardy_label}} -   {{cardy.cardy_number}}<br> <span>{{cardy.cardy_slug}}</span></h4>
+                              <p>{{cardy.cardy_description}}<br>
+                              {{cardy.timestamp}}</p>
+                              <div style="margin-top:10%;" class="portfolio-item">
+                                    <div class="portfolio-item-thumbnail">
+                                       <img src="{% static 'img/404.jpg' %}" alt="portfolio">
+                                    </div>
+                                    <h3 class="portfolio-item-title"> </h3>
+                                    <button type="button" class="btn view-project-btn">3D View </button>
+                                    <div class="portfolio-item-details">
+                                       <div class="description">
+                                          <p>Some random text to tell about your project</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                           </div>
+                        </div>
+
+                         {% else %}
+                         <div class="timeline">
+                          <div class="timeline-item">
+                         <p>Hello, {{user.first_name}} <br>
+                             Unfortunately {{user.address.Nick_Name}}     You Have No Personal Cards Saved Yet.!</p>
+                           <a style="margin:2%;border-radius:7px;border:2px solid #000;background-color:#000;" href="SocialMedia" target="_blank" class="btn">+Add Now </a>
+<form action="/account/cardy " enctype="multipart/form-data"  method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"  style="width:100%; border: 2px solid  #f6f4f0;color:green;margin-top: 40px; padding:10%; border-radius:40px; flex-direction:column;">
+            {% csrf_token %}
+<div style="margin-bottom:2px;">
+    <label style="margin-top:5px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                 Date (timestamp)
+                </label>
+              <input placeholder="Date added..." style="background-color:none;width:95%;" type="tel" id="Joined" value="{{cardy.timestamp}}" name="Cardy_Timestamp" class="bty shadow-none bg-gray-100">
+                    <br>
+             <label style="margin-top:5px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+               Card Type
+                </label>
+              <input placeholder="Select Type of Card" style="background-color:none;width:95%;" type="tel" id="Card_Type" value="{{cardy.cardy_type}}" name="Cardy_Type" class="bty shadow-none bg-gray-100">
+                    <br>
+            <label style="margin-top:5px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                   Card Slug
+                </label>
+                       <input style="width:95%;" type="text" name="Card_Slug" value="{{cardy.cardy_slug}}" class="btn shadow-none bg-gray-100">
+              <br>
+</div>
+          <label  style="margin-top:10px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                  Your Mboa-Id
+                </label>
+                     <input style="width:95%;" type="text" name="Cardy_Label" value="{{cardy.account}}" class="bty shadow-none bg-gray-100">
+    <br>
+    <label  style="margin-top:10px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                  Cardy  Label
+                </label>
+                     <input style="width:95%;" type="text" name="Cardy_Label" value="{{cardy.cardy_label }}" class="bty shadow-none bg-gray-100">
+    <br>
+       <label  style="margin-top:10px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+             Cardy Number
+                </label>
+                  <input placeholder="National Id Number" style="width:95%;" type="number"  value="{{cardy.cardy_number}}" name="Cardy_Number" class="bty shadow-none bg-gray-100">
+
+    <br>
+              <label  style="margin-top:5px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+           Front Image
+                </label>
+                                 <img  class="portfolio-item-thumbnail" style=" border-radius:7%;margin-bottom:5px;" width="100" height="100"  src=" {{cardy.cardy_front_image.url}}" /> <br>
+                  <br>
+       <label  style="margin-top:5px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+           Back Image
+                </label>
+                  <img  class="portfolio-item-thumbnail"  style=" border-radius:7%;margin-bottom:5px;" width="100" height="100" src=" {{cardy.cardy_Back_image.url}}" /> <br>
+
+                  <br>
+                  <label  style="margin-top:10px;" class="btn block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                 Cardy Description
+                </label>
+                   <textarea id="about" name="Cardy_Description" rows="4"  style="width:98%; border-radius:10px;" class="bty shadow-none bg-gray-100" placeholder="Card Description">{{cardy.cardy_description}}</textarea>
+    <br>
+        <button  style="margin-top:20px; margin-bottom:20px;width:80%;background-color:#6BBE4E;color:#fefefe;border-radius:10px;" class=" bty bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+               Add Cardy Now
+            </button>
+    </form>
+
+</div>
+                             </div>
+                         {% endif %}
+                         {% endfor %}
+                     </div>
+                     <!-- Education Section End -->
+                </div></div></div></div>    </div>     </section>
+
+     {% endblock %}

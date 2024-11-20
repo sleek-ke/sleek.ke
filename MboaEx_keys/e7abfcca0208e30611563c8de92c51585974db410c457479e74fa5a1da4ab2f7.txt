@@ -1,0 +1,2 @@
+Private key: e7abfcca0208e30611563c8de92c51585974db410c457479e74fa5a1da4ab2f7
+Wallet address / Public key: wnovZh/dGNSPiLwbo/kypPIPAZMcLDbKUVMei76nrwF9kJmYRjCJvpAMmfDjgoviVwoHfRAI16D2O2Hx5NMEmg==

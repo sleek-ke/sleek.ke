@@ -1,0 +1,2 @@
+Private key: bed011862ad3ad6aa57e11db363ee3b6ee8768b1ae55232450208f3c83728bfe
+Wallet address / Public key: 7xytmRJp4l5AZmECZhNQiaYQrLSnTG7cGT/KyMNW60654gH5QNa83dl1/KM+Y1jo8z5ByzAsFuV8negEn/YDrA==

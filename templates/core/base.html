@@ -1,0 +1,102 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+          <link style="width:50px;height:50px;border-radius:100%;" rel="shortcut icon" href="{% static 'img/Mboa Academy.jpg '%}"  id="icon" >
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="New Wave of Kenyan trade and investing in digital assets" />
+        <meta name="author" content="Mboa Technologies" />
+        <title>
+            {% block head_title %}Sleek.ke -Buy Digital Assets{% endblock %}
+        </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+       <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+
+        {% block head_extra %}{% endblock %}
+    </head>
+     <!-- PG Start -->
+   <!-- PG End -->
+     <div class="page-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+   </div>
+   <!-- BG Start -->
+   <div class="bg-circles">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-5"></div>
+       <div style=" background:url({% static 'img/KenyanBrand.jpg' %});" class="circle-4"></div>
+   </div>
+   <!-- BG End -->
+   <!-- Overlay Start -->
+   <div class="overlay"></div>
+   <!-- Overlay End -->
+    <body  class="bg-gray-100">
+        {% block body %}
+
+        <div class="main hidden" >
+         <!-- Header Start -->
+
+         <header class="header">
+<div   class="container">
+               <div class="row flex-end">
+            <button style="margin-top:6vh;margin-right:8%;" type="button" class="nav-toggler">
+                  <span></span>
+                  </button>
+                  <div class="nav">
+                     <div  style="background-color:rgba(0,0,0,0.2);
+         border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="nav-inner">
+                          <div  style="" class="home-img">
+                         <div style=" font-width:500px bold;color:#008800;margin:10px 10px;" class="about-tabs">
+{% include 'core/navbar.html' %}
+                         </div>
+                              </div>
+                     </div>
+
+                  </div>
+                                    </div>
+</div> </header>
+
+
+         <!-- Header End -->
+         <!--Home Section Start -->
+            <div class="lg:container lg:mx-auto">
+
+                {% block content %}
+                 {% include 'core/messages.html' %}
+                <!-- Add content here -->
+                {% endblock %}
+            </div>
+            {% include 'core/footer.html' %}
+
+        {% endblock %}
+        {% block footer_extra %}{% endblock %}
+        </div> </body>
+
+
+<div  class="portfolio-popup" style="background-color:rgba(0,0,0,0.2);
+        opacity:100%; backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10px;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);">
+         <div class="pp-inner">
+            <div class="pp-content">
+               <div class="pp-header">
+                  <button type="button" class="btn pp-close">
+                      <i class="fas fa-times"> </i> </button>
+
+                  </div>
+                        {% include 'mpesa/LipaNaMpesa.html' %}
+               </div>
+               <div class="pp-body">
+               </div>
+
+            </div>
+         </div>
+
+      <!-- Portfolio Item Details Popup Start -->
+<script src="{% static 'js/script.js' %}"></script>
+</html>

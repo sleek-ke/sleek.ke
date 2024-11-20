@@ -1,0 +1,82 @@
+{% load static %}
+{%load admin_list%}
+{% include 'core/messages.html'%}
+{% block content %}
+ <!-- Portfolio Section Start -->
+
+  <div class="row">
+  {% for item in object_list %}
+                  <!-- Portfolio Item Start-->
+                  <div class="portfolio-item" style=" display:flex; flex-direction:row;font-family:Comic Sans Mn;">
+                   <div style="width:60%;border-bottom:none;border:2px solid rgba(0,0,0,0.2);opacity:90%; background-image:url({{ item.image.url }});background-size:cover; position:cover; background-repeat:no-repeat;border-radius:7px;" class="portfolio-item-thumbnail">
+                    <p  style="font-size:80%;font-weight:bold;background-color:rgba(0,0,0,0.6);border:2px #1DA756 solid;color:#f8f9f0 ;" class="btn view-project-btn">
+                           <a href="{{ item.get_absolute_url }}"
+                </a> {{ item.title | lower | capfirst }}
+                        </p>
+<a href="{{ item.get_absolute_url }}" class="dark-grey-text">
+<!--                        <img src="{{ item.image.url }}" style="width:100%; height:100%; " alt="{{ product.name }}">-->
+    </a>
+
+                          <div style="margin-top:90%; display:flex;flex-directio:row; height:10vh; ">
+            <a style="opacity:90%; backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);height:100%;width:100%; font-size:100%; color:#001100;  border-radius:10px; background-color:#6BBE4E;"  class="bty view-project-btn"><strong>Ksh.
+                  {% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong> </a>
+                          </div>
+                        </div>
+
+                                       <div class="bty" style="box-shadow:20px 4px 100px #fff; background-color:#ffffff00; margin:2%; border-radius:7px ;width:40%;">
+                                                 <div>
+                           <img src="{{ item.user.profileimg.url }}" style="width:50px;height:50px;border-radius:100%;" alt="{{ product.name }}">
+
+                                             <a  href="/plug/profile/{{item.user.slug}}" style="margin:2%;">{{ item.user.Nick_Name}} <br>
+                                                  {{ item.user.location }}
+                                             0{{ item.user.postal_code }}<br> </a> </div>
+
+
+ <h6 style="font-size:60%;color:#062C30; margin-top:5px;">price impact warning:<strong style="color:#E4D789;">   1.88%   </strong>          Quote updates in <strong style="color:#E4D789;">   55s  </strong>Price is VAT. inclusive</h6>
+
+                                       </div>
+        </div>
+      {% endfor %}
+  </div>
+
+      <!--Pagination-->
+
+      {% if is_paginated %}
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-black">
+
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <li class="page-item active">
+            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+
+
+
+{% endblock content %}

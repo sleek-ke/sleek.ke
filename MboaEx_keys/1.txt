@@ -1,0 +1,4 @@
+Mboa Technologies .Eat. Sleep .code
+Private key: fbb766349d839acc641b79391f358caa4c76d88c1df5fdaa13af4afccaf9c5ba
+Wallet address / Public key: ffsmsCCE22VGUxZ2sbpbK3fDDi2mj7AzLIey2Ee7s/
+rS+hZurlvl2sBCehuxDSaA4SBtQlEwOeQBCj8RdQ0Nbg==

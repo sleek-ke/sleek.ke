@@ -1,0 +1,95 @@
+{% extends "plug/core.html" %}
+{% block content %}
+<section  style="margin-top:5vh;color:#000;font-weight:bold; font-family:Comic Sans Mn;background-color:rgba(0,0,0,0.2);
+       border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class=" wow fadeIn home-section align-items-center"  id="home">
+            <div class="container">
+               <div class=" align-items-center">
+
+                   <div  class="col-md-4 mb-4">
+                       {% for message in messages %}
+
+<div style=" opacity:90%;z-index:10;backdrop-filter:blur(10px);border-radius:7px;margin-top:20vh; width:100%;height:14vh;padding:2%;color:#001100; background-color:#6BBE4E;" class="bty bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2"   role="alert">
+           <div  class="flex">
+            <p style="flex-direction:row;color:yellow;" class="font-bold"> <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i> Success! <b style="color:#001100;margin-top:10px;" class="text-sm block sm:inline">{{ message }}</b></p>
+
+        </div>
+</div>
+    {% endfor %}
+
+                       <h1 style="margin-top:20px;"> My Order Summary</h1>
+                   </div>
+    <div style="font-weight:bold;" class="table-responsive text-nowrap">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price (Ksh)</th>
+            <th scope="col">Ngapi?</th>
+            <th scope="col">Total Price (Ksh)</th>
+            <th scope="col">Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order_item in object.items.all %}
+        <tr style="font-weight:bold;">
+            <th scope="row">{{ forloop.counter }}
+             </th>
+            <td>{{ order_item.item.title }}</td>
+            <td>{{ order_item.item.price }}</td>
+            <td>
+                 <a  href="{% url 'core:add_single_item_to_cart' order_item.item.slug %}"><i class="fas fa-arrow-circle-up float-center"></i></a>
+
+               <p class="float-right"  > {{ order_item.quantity }}</p>
+
+                 <a href="{% url 'core:remove_single_item_from_cart' order_item.item.slug %}"> <i class="fas fa-arrow-circle-down float-center"></i></a>
+            </td>
+            <td>
+            {% if order_item.item.discount_price %}
+                {{ order_item.get_total_discount_item_price }}
+                <span class="badge badge-primary">Saved {{ order_item.get_amount_saved }}</span>
+            {% else %}
+                Ksh. {{ order_item.get_total_item_price }}
+            {% endif %}
+            </td>
+        <td><a style='color: red;' href="{% url 'core:remove-from-cart' order_item.item.slug %}">
+                <i class="fas fa-trash float-right"></i>
+            </a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan='5'>Your cart is empty</td>
+        </tr>
+        <tr>
+            <td colspan="5">
+            <a class='btn btn-primary float-right' style="background-color:#fff;" href='/openSoko'><i class="fas fa-buysellads float-right"></i>Continue shopping</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% if object.coupon %}
+        <tr>
+            <td colspan="4"><b>Coupon</b></td>
+            <td><b>-Ksh. {{ object.coupon.amount }}</b></td>
+        </tr>
+        {% endif %}
+        {% if object.get_total %}
+        <tr>
+            <td colspan="4"><b>My Order Total</b></td>
+            <td><b>Ksh. {{ object.get_total }}</b></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+            <a style="background-color:#6BBE4E;color:#fff;font-family:Comic Sans Mn;" class='btn  float-right ml-2' href='/checkout/'>Proceed to checkout</a>
+            <a style="background-color:#001100;color:#fff;" class='btn  float-right' href='/openSoko'>Continue shopping</a>
+            </td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+                  </div>
+           </section>
+{% endblock content %}
+
+

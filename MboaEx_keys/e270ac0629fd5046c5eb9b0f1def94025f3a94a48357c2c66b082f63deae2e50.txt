@@ -1,0 +1,2 @@
+Private key: e270ac0629fd5046c5eb9b0f1def94025f3a94a48357c2c66b082f63deae2e50
+Wallet address / Public key: osuzaEOH0pJse9hRZO8mZ0xX3D14NcWSC5K9VJYmy/WNPQpEw6I1M9vQ686ottDK2m4ykCbUfLRDBmghDgCCrA==

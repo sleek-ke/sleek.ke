@@ -1,0 +1,55 @@
+{% load cart_template_tags %}
+
+<nav  class="navbar align-items-center fixed-top navbar-expand-lg navbar-light scrolling-navbar" style="background-color:rgba(0,0,0,0.2);
+         opacity:70%; margin-top:-1ovh;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex; flex-direction:row;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);">
+    <div class="container">
+
+      <!-- Brand -->
+        {% if request.user.is_authenticated %}
+<!--      <a href="/">-->
+<!--      <img  class="img-fluid" style="margin-left:2px;width:50px; height:50px ; border-radius:100%; opacity:100%; margin-top:1vh;" src=" {{user.address.profileimg.url}}"  alt="Profile Picture for {{ user.first_name }}">-->
+<!--      </a>-->
+
+        <button style="padding:4px;display:flex;flex-direction:row;width:100%;border-radius:40px;" class=" btn " type="button"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="/" >
+      <img  class="img-fluid" style="width:35px;height:30px;margin-top:0.5vh;margin-left:0.5vw; border-radius:100%; opacity:100%; " src=" {{user.address.profileimg.url}}"  alt="Profile Picture for {{ user.first_name }}">
+           </a>
+            <a href="/openSoko">
+       <h6  style="margin-top:0.5vh;color:#001100;font-weight:bold;padding:1;border:none;font-family:Comic Sans Mn; font-size:130%; margin-left:40%;text-align:center;" class="bty navbar-brand waves-effect">    <strong class="black-text">openSoko</strong>  </h6>
+      </a>
+       <a style="margin-top:0.5vh;margin-left:40%; " href="{% url 'core:order-summary' %}"><span  class="fas fa-shopping-cart"> </span></a>
+    <span style="margin-left:-2px;background-color:#6BBE4E;" class="badge  badge-pill">{{ order.items.count }}</span>
+      </button>
+       {% else %}
+      <a href="/accounts/login">
+        <h1  style="font-weight:bold;font-family:Comic Sans Mn; font-size:150%;  text-align:center;" class="bty navbar-brand waves-effect">    <strong >openSoko</strong>  </h1>
+      </a>
+        {% endif %}
+
+
+
+      <!-- Collapse -->
+
+
+      <!-- Links   class="navbar-toggler-icon"   <i class="fas fa-shopping-cart"></i>-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          {% comment %} <li class="nav-item active">
+            <a class="nav-link waves-effect" href="/">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="/checkout">
+            Checkout</a>
+          </li> {% endcomment %}
+        </ul>
+
+        <!-- Right -->
+      </div>
+
+    </div>
+  </nav>

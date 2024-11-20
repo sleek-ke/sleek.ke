@@ -1,0 +1,19 @@
+{% load static %}
+
+{% if request.user.is_authenticated %}
+<form action="stk" method="POST" >
+                                                             {% csrf_token %}
+                                                             <input type="text" id="phone_number"  hidden  readonly value="0{{user.address.postal_code}}" name="phone_number" placeholder="phone number"
+                                                              class="btn form-control" required autofocus    style="font-family:Comic Sans Mn;font-size:24px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; width:100%; "><br>
+                                                             <input type="number" id="amount" hidden  readonly value="{{Academy.cortex_Price}}" required name="amount" class=" btn form-control" placeholder="Amount " style="font-family:Comic Sans Mn;font-size:24px;text-align:center; height:7vh;margin-top:20px; margin-bottom:70px;border-radius:10px; width:100%;">
+             <button style="font-weight:bold;background-color:#6BBE4E;border-radius:20px; padding:2px;margin-top:80vh;width:100%; " type="submit" class="btn btn-md my-0 font-family:Comic Sans Mn; font-weight-bold black-text p">
+              Start Now |  <img style="width:50px; font-size:40%;  height:40px;"   src="{% static '/img/mpesa.png'%}">
+            </button>
+                   </form>
+
+ {% else %}
+            <div style="margin-top:50px;" class="text-md lg:flex-grow"></div>
+            <div>
+                <a href="/Deposit" class="bty mr-2 inline-block font-medium text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-gray-800 hover:bg-white mt-4 lg:mt-0">Buy  | <img style="width:50px; font-size:40%;  height:40px;"   src="{% static '/img/mpesa.png'%}">
+                </a></div>
+{% endif %}

@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}{{ title }}{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<section class="home-section align-items-center" id ="support">
+    <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+
+                                        <h1  style=" margin-top:10px; font-size:150%; margin-bottom:5px; width:100%;height:25vh; background-color:#ffffff00;"  class=" bty bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2 font-mono font-bold text-3xl text-center pb-5 pt-10">{{ title }}
+                                            <strong>  {{ user.email }}</strong>
+
+
+                                        </h1>
+
+<div  style="margin-top:5vh;" class="w-full mt-5">
+    <form  method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+
+        <div class="mb-4">
+            <label class="bty block text-gray-700 text-sm font-bold mb-2" for="amount">
+                Amount to Pay
+            </label>
+
+            <center>
+            <input  value="{{ product.price }}" style="width:100%;margin-top:20px;color:#001100;" class="btn shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight border rounded-md border-gray-500 focus:outline-none focus:shadow-outline" name="amount" id="amount" type="number" required placeholder="Amount in Ksh">
+            </center>
+        </div>
+
+        {% if form.amount.errors %}
+            {% for error in form.amount.errors %}
+                <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+        <center>
+        <button style=" margin-top:40px; background-color:#001100;color:#f6f4f0;" class="bty bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            Submit
+        </button>
+            </center>
+    </form>
+</div>
+                  </div>
+               </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

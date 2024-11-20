@@ -1,0 +1,299 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="" />
+    <meta name="publisher" content="" />
+    <meta name="copyright" content="" />
+    <meta name="creation_Date" content="15/06/2023" />
+    <meta name="expires" content="" />
+             <link style="width:50px;height:50px;border-radius:100%;" rel="shortcut icon" href="{% static 'img/Mboa Academy.jpg '%}"  id="icon" >
+    <title>Mboa Academy</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P72MKEN7S2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+
+
+gtag('config', 'G-P72MKEN7S2');
+</script>
+
+
+<!--StyleSheet-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="{% static '/academy/css/style.min.css' %}">
+         <link rel="stylesheet" href="{% static '/academy/css/style.css' %}">
+
+<!--Javascript-->
+     <script type="text/javascript" src="{% static '/academy/js/google.api.js' %}"> </script>
+</head>
+<body>
+<!-- Header Area Start -->
+<header class="header-area scrollheader">
+  <div class="classy-nav-container breakpoint-off">
+    <div class="container">
+      <!-- Classy Menu -->
+      <nav class="classy-navbar justify-content-between" id="roamingnav">
+
+        <!-- Logo -->
+          <a class="nav-brand mainlogo" href="/page"><H4 style="font-weight:bold;">       Mboa Academy</H4>
+<!--          <img src="{% static 'img/Mboa Academy.jpg '%}" style="width:60px;height:60px;border-radius:100%;"  class="web-logo" alt="Mboa Academy"></a>-->
+        </a>
+        <!-- Navbar Toggler -->
+        <div class="classy-navbar-toggler"> <span class="navbarToggler"><span></span><span></span><span></span></span> </div>
+
+        <!-- Menu -->
+        <div  class="classy-menu">
+          <!-- <a class="nav-brand nav-brand-mobile" href="index.html"><img src="images/mpesa-logo.svg" class="mobile-logo" alt=""></a> -->
+          <!-- Menu Close Button -->
+          <div style="margin-left:10vw;" class="classycloseIcon">
+            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+          </div>
+          <!-- Nav Start -->
+          <div class="classynav">
+              <center>
+              <ul  style="display:flex;flex-direction:row;">
+                  <li > <a href="/" ><img  class="img-fluid" style="width:20px;height:20px; border-radius:100%; opacity:100%; margin-top:-5px;" src=" {{user.address.profileimg.url}}"  alt="Profile Picture for {{ user.first_name }}"></a>  </li>
+                 <li >  <h6 style="font-size:70%;" > <a href="/" >{{ user.first_name }}</a></h6></li> </ul>
+                 </center>
+              <ul id="nav">
+<li ><a href="/openSoko">Shop</a></li>
+<li ><a href="/wallet">Wallet</a></li>
+<li><a href="/plug/posts">Blog</a></li>
+<li><a href="/">Settings</a></li>
+<li><a href="/plug/upload">Post</a></li>
+<!--<li><a href="/page">Library</a></li>-->
+<li><a href="/bots">Bots</a></li>
+<!--<li><a href="/accounts/logout">Logout</a></li>-->
+              </ul>
+          </div>
+          <!-- Nav End -->
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- Header Area End -->
+<!-- Header Area End -->
+<section  style="padding:10%;"  class=" pt-5 pb-5 text-black">
+    <div class="row align-items-center h-100">
+        <div class="col-12 col-sm-7 col-md-5 banner-content ">
+            <h1> &nbsp;<span style="font-weight: bolder; text-align: var(--x-body-text-align);">
+                Mboa</span><br>
+                <span style="color: rgb(0, 0, 0); font-weight: bolder; text-align: var(--x-body-text-align);">
+                 Academy   &nbsp;</span></h1>
+            <p  class="text-muted">
+                "Your work is going to fill a large part of your life,and the only way to be truly satisfied is to do <br/>
+                what you believe is great work.And the only way to do great work is to love what you do."</p>
+        </div>
+</div>
+</section>
+<section class="most-popular pt-5 pb-5">
+     <div class="container">
+         <div class="row">
+             {% for Academy in  object_list%}
+                         <div  class="col-lg-4 col-md-6 col-sm-12">
+                <div  class="card">
+                    <div class="image-holder">
+                        <img   src="{{Academy.cortex_image.url}}" alt="{{Academy.cortex_Name}}" />
+                      <div style="display:flex;flex-direction:row;padding:10%;">
+                       <div class="price"><h2>Ksh. {{Academy.cortex_Price}}</h2></div>
+                        <div style="margin-left:30px;" class="price"><h2 style="color:#B9F6CA;"  >{{Academy.Programming_Language}}</h2></div>
+
+                    </div>
+                      </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col-12">
+                            <span   class="product_catergory">{{Academy.course}}</span>
+                                <div style="margin-top:5px;" class="price "><h2>{{Academy.cortex_Name}}</h2></div>
+                          <div class="title"><h4>{{Academy.Nerd.account}}</h4></div>
+                          <div class="price"><h2>Duration:{{Academy.cortex_Duration}}</h2></div>
+                           <span class="price"><h4>{{Academy.cortex_Description}}</h4></span>
+                            <div class="price"><h2 style="font-size:70%;color:#E57373;">Posted|{{Academy.posted_at}}</h2></div>
+                            </div>
+                            {% include 'mpesa/MpesaButton.html' %}
+                        </div>
+                    </div>
+                </div>
+             </div>
+
+             {% endfor %}
+                      </div>
+     </div>
+ </section>
+
+<section class="section-newsletter">
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class="newtextinfo">
+            <h2>Sign up for our <span>Mboka Updates</span></h2>
+            <p class="text-muted">Stay up to date on available Mboka, and learn more about the latest developments, deals,gigs and offers.We also post learning Materials...</p>
+        </div>
+        </div>
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <div class="subscribeblock">
+            <div class="subscribe-text mb-15">
+                <h2>Be the <span>first</span> to know when we post New content</h2>
+            </div>
+            <div class="subscribe-wrapper subscribe2-wrapper mb-15">
+                <div class="subscribe-form">
+                                             <input id="email_address_newsletter" name="email_address_newsletter" class="form-control" placeholder="Enter your Email address*" type="email">
+                        <button onclick="saveNewsletter()" class="btn btn-primary btn-lg">Request</button>
+
+                         <div id="newsletter_loading_div"></div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+</section>
+
+ <footer class="pt-5 pb-5" style="background-image: url('/mpesaglobalpay/images/600_400_Digital-Farmer-1.jpg');">
+
+    
+<div class="container">
+         <div class="row">
+             <div class="col-12 col-md-4 text-white footer-text">
+                 <h2><span>Everyone in this Country <br/>
+                     Should learn How to Code</span>&nbsp; <br> Know a Computer programming Language.Coding Teaches you how to think. </h2>
+                 <button class="btn btn-green" data-bs-toggle="modal" >Get Started Now</button></div>
+             <div class="col-12 footer-last">
+                 <div class="row">
+                    <div class="col-12 col-md-6 social-icons">
+                        <ul>
+                            <li class="title">Follow us on:</li>
+                            <li><a target="_blank" href="/assets/img/logo/facebook.png">
+                                <i class="fab fa-facebook"></i>
+                                </a></li>
+                            <li><a target="_blank" href="https://twitter.com/safaricom_care?lang=en">
+                                <i class="fab fa-twitter"></i>
+                            </a></li>
+                            <li><a target="_blank" href="https://www.youtube.com/user/SafaricomOfficial">
+                                <i class="fab fa-youtube"></i>
+                            </a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/safaricomplc_/?hl=en">
+                                <i class="fab fa-instagram"></i>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-6 text-end footer-urls">
+                        <ul>
+                            <li><a href="/wallet">
+                                Wallet</a></li>
+                             <li><a href="/Community">
+                                Community</a></li>
+                            <li><a href="/gigs">
+                                gigs</a></li>
+                             <li><a href="/page">
+                               Invest</a></li>
+<li>
+    <a href="Mboka-Academy.html">
+        Mboa Academy</a></li></ul>
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
+
+ </footer>
+
+ <!-- Modal -->
+ <!-- Modal -->
+  <!-- Modal -->
+  <div class="modal fade app-store-holder"
+       id="appstore" tabindex="-1"
+       aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close">
+
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="text-black">
+                <h2>Get Your<span>Mboa-ID</span></h2>
+                <a target="_blank"
+                   href="https://play.google.com/store/apps/details?id=com.safaricom.mpesa.lifestyle&hl=en&gl=US"
+                   class="app-store">
+                    <img src="./images/icons/google-play.png" alt="App Store" >
+                </a>
+                <a target="_blank" href="https://apps.apple.com/ke/app/m-pesa/id1496784664
+" class="app-store">
+                    <img src="./images/icons/app-store.png" alt="App Store" >
+                </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- jQuery -->
+<script src="" type="text/Javascript"></script>
+<script type="text/javascript" src="{% static '/academy/js/jquery.min.js' %}"> </script>
+<script type="text/javascript" src="{% static '/academy/js/main.js' %}"> </script>
+
+<script type="text/javascript">
+
+
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+
+    function saveNewsletter() {
+
+
+        var email_address_newsletter = $("#email_address_newsletter").val();
+        if (email_address_newsletter === "") {
+            $("#email_address_newsletter").addClass('error');
+            $("#newsletter_loading_div").html("Please enter your email address").addClass('error');
+            return false;
+        } else if (!reg.test(email_address_newsletter)) {
+            $("#email_address_newsletter").addClass('error');
+            $("#newsletter_loading_div").html("Please enter a valid email address").addClass('notifications error');
+            return false;
+        } else {
+            $.ajax({
+                url: "http://www.safaricom.co.ke/mpesaglobalpay/save_newsletter",
+                type: "GET",
+                data: {email_address_newsletter: email_address_newsletter},
+                beforeSend: function () {
+                    $("#newsletter_loading_div").html('<img alt="Loading" src="http://www.safaricom.co.ke/mpesaglobalpay/images/ajax-loader.gif">');
+                }
+            }).done(function (data) {
+
+                //var data = jQuery.parseJSON(data);
+                var status = data.status;
+                var message = data.msg;
+
+                if (status == 'true') {
+
+                    $("#newsletter_loading_div").html(message).removeClass().addClass('btn btn-success');
+                    $("#email_address_newsletter").val("");
+
+                } else {
+                    $("#newslstter_loading_div").html(message).removeClass().addClass('btn btn-danger');
+                }
+
+            });
+        }
+
+
+    }
+</script>
+</body>
+
+</html>

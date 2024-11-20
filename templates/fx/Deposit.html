@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+{% block content %}
+{%load static%}
+
+<section style="background-color:rgba(0,0,0,0.2);border-radius:40px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="home-section align-items-center" id="home">
+            <div class="container">
+                 <div  class="col-md-4 mb-4">
+                       {% for message in messages %}
+
+<div style=" opacity:90%;z-index:10;backdrop-filter:blur(10px);border-radius:7px;margin-top:20vh; width:100%;height:14vh;padding:2%;color:#001100; background-color:#6BBE4E;" class="bty bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2"   role="alert">
+           <div  class="flex">
+            <p style="flex-direction:row;color:yellow;" class="font-bold"> <i class="fa fa-check-circle" style="color: #48dbfb;" aria-hidden="true"></i> Bold Moves<b style="color:#001100;margin-top:10px;" class="text-sm block sm:inline">{{ message }}</b></p>
+
+        </div>
+</div>
+    {% endfor %}
+               <div class="row align-items-center">
+                  <div class="home-text">
+                  </div>
+<!--                     <img  class="logo" src="{% static 'img/Mboa Academy.jpg '%}" alt="profile-img">-->
+<!--                     <h1  >  Mboa-ID</h1>-->
+
+
+    <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+
+            {% if request.user.is_authenticated %}
+
+            <div  href="/wallet" style="box-shadow:2px 4px 50px #001100;border-radius:10px;margin-bottom:20px;" class="portfolio-item-thumbnail">
+                 <img style=" opacity:40%; margin-top:5px; position:center; box-shadow: 34px 8px 80px green; width:60px; height:60px;border-radius: 100%;" src="{{ user.address.profileimg.url }} " >
+                <div > <center>
+             <div class=" flex  bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2"  style="margin-bottom:2px;"  role="alert">
+                 <p style=" border-color:transparent; background-color:#ffffff00; color:#001100;"><strong > <br>Hey {{user.first_name}},  <br>  Paying via M-Pesa  no.  <b style="color:#005500;">0{{user.address.postal_code}}</b></strong> <br>
+          <b style="color:#001100;">Change it if necessary.</b>
+                 </p>
+             </div>
+                 </center>
+             </div>
+                 <a href="/setting"><h3  style="background-color:#6BBE4E; width:100%;color:#f8f9f0; text-align:center;" class="btn ">    Account  </h3></a>
+                 <a href="/accounts/settings"><h3  style="border: 1px solid #6BBE4E; width:100%; text-align:center;" class="btn ">  Update Profile
+                 </h3></a>
+</div>
+                  </div>
+{% endif %}
+                   <div class="home-text">
+<center style=" margin-left:1%;margin-top:5px;">
+<form  method="POST"  action="mpesa/stk" style="border: 3px solid #001100;width:85%;opacity:100%;color:white;margin: 2px; padding:10%; border-radius:40px;">
+<div style="display:flex;flex-direction:row;">
+<p style=" font-size:100%; font-weight:500px; color: #001100;margin-top:10px;margin-right:6px; width:100%;"> <img style="margin-bottom:5px; position:center; box-shadow: 34px 8px 80px green; width:40px; height:40px;border-radius: 100%;" src="{% static 'img/Mboa Academy.jpg' %} " > Mboapay</p>
+<img style=" margin-left:10px; width:100px;  height:50px;"   src="{%static '/img/mpesa.png'%}"></div>
+{% csrf_token %}
+<div style="margin-top:30px;">
+<input type="tel" id="phone_number" maxlength="10" value="0{{user.address.postal_code}}" name="phone_number" placeholder="phone number" class="btn form-control" required autofocus    style="font-family:Comic Sans Mn; color:#001100;font-size:16px;text-align:center; margin-top:5px;border-radius:10px;height:7vh; width:100%; "><br>
+<input type="number" id="amount"  required name="amount" class=" btn form-control" placeholder="Amount " style="font-family:Comic Sans Mn;font-size:16px;text-align:center; height:7vh;margin-top:20px; margin-bottom:70px;border-radius:10px; width:100%;"></div>
+<center style="margin-top:50p x;margin-bottom:20px;">
+    <button type="submit" style="font-size: 24px;margin-left:10px; margin-bottom:25px;width:100%;height:50px ;position:center;border-radius:40px;background: #C9FEC0;border:solid 1px #D2D2D2;font-family:Comic Sans Mn;text-decoration: none;color: #001100;padding:2%;cursor:pointer;box-shadow: 4px 9px 100px  #fefefe;"  >Deposit </button></center>
+</form>
+    <hr style="width:100%;height:1px;">
+    <a  href="/mpesa/Offline" class="bty" style="width:100%; margin-bottom:2px; border-radius:7px; color:#001100; background: transparent; cursor:pointer;border:2px solid #C9FEC0;"> Offline Payments</a>
+
+</center>   </div>
+
+               </div>
+
+
+
+
+
+                  </div>
+               </div>
+            </div>
+            </div></section>
+{% endblock %}

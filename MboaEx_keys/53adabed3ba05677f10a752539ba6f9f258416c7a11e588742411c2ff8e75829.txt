@@ -1,0 +1,2 @@
+Private key: 53adabed3ba05677f10a752539ba6f9f258416c7a11e588742411c2ff8e75829
+Wallet address / Public key: nniv2ARZ9PF8cm6/oDUd3nZZ8TVHNJ4OiooDN3pAnvzFdX3eOUOfztQA6IO9s4cdpwDRpjab9iof4zY/PUqkVw==

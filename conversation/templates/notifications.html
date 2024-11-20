@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat UI Responsive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato'>
+    <style>
+        /* Add the provided CSS styles here */
+        .chat-container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 1px;
+            align-items: flex-start;
+        }
+
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+            padding: 20px;
+            border: 2px solid red;
+            border-radius: 5px;
+        }
+
+        .message {
+            margin: 10px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sender {
+            font-weight: bold;
+            color: green;
+        }
+
+        .content {
+            margin-top: 5px;
+        }
+
+        .send-message-form {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .send-message-form textarea {
+            width: 100%;
+            margin-bottom: 400px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+
+        .send-message-form button {
+            align-self: flex-start;
+        }
+
+        /* Additional styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-size: 100%;
+            background-image: linear-gradient(to bottom right, #333333, #000000);
+            background-attachment: fixed;
+        }
+
+        .reply-button {
+            display: inline-block;
+            padding: 2px 5px;
+            margin-right: 10px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            ; /* Add space between buttons */
+            background-color: #5a0404;
+            color: #333333;
+            border: 2px solid #333333;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .reply-button:hover {
+            background-color: #333333;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-box">
+        <h1 style="color: red; font-family: Arial, sans-serif; text-align: center;">Notifications</h1>
+
+        {% for message in messages %}
+            <div class="message">
+                <div class="sender">{{ message.sender.username }}</div>
+                <div class="content">{{ message.message_content }}</div>
+            </div>
+        {% empty %}
+            <p style="color: red; font-family: Arial, sans-serif; text-align: center;">No new messages.</p>
+        {% endfor %}
+
+        <div class="messages">
+            {% for notification in notifications %}
+                <div class="message">
+                    <div class="sender" style="color: blue;">{{ notification.seller.username }}</div>
+                    <div class="content">
+                        <span style="color: green; font-weight: bold;">{{ notification.buyer.username }}:</span>
+                        <span style="color: rgb(26, 25, 25); font-weight: bold;">{{ notification.message }}</span>
+                    </div>
+                    <div class="actions">
+                        <a href="{% url 'conversation:reply_message' notification_id=notification.id %}" class="reply-button">Reply</a>
+
+                        <form action="{% url 'conversation:delete_notification' notification.id %}" method="post" class="delete-form">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button" data-message-id="{{ notification.id }}">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No new notifications.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        console.log("JavaScript code executed!");
+
+        $(".delete-form").on("submit", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            console.log("Delete button clicked!");
+            var messageId = $(this).find(".delete-button").data("message-id");
+            console.log("Message ID:", messageId);
+
+            // Perform an AJAX request to delete the message
+            $.ajax({
+                url: $(this).attr("action"),
+                method: "POST",
+                data: {
+                    csrfmiddlewaretoken: $(this).find("[name=csrfmiddlewaretoken]").val()
+                },
+                success: function (response) {
+                    // Handle the success response, if needed
+                    console.log("Message deleted successfully.");
+                },
+                error: function (xhr, status, error) {
+                    // Handle the error response, if needed
+                    console.error("Failed to delete message:", error);
+                }
+            });
+        });
+
+        // Rest of your code...
+    });
+</script>
+</body>
+</html>

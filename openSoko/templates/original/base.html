@@ -1,0 +1,141 @@
+{% load static %}
+<html lang="en">
+<head>
+     <link style="width:50px;height:50px;border-radius:100%;" rel="shortcut icon" href="{% static 'img/Mboa Academy.jpg '%}"  id="icon" >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block head_title %}OpenSoko -Nunua Kila stuff{% endblock %}</title>
+  {% block extra_head %}
+  {% endblock %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link href="{% static 'openSoko/css/bootstrap.css' %}" rel="stylesheet">
+  <link href="{% static 'openSoko/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'openSoko/css/mdb.min.css' %}" rel="stylesheet">
+  <link href="{% static 'openSoko/css/mdb.lite.min.css' %}" rel="stylesheet">
+  <link href="{% static 'openSoko/css/style.min.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="{% static 'openSoko/css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<!--       <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">-->
+
+
+    <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 60vh;
+    }
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+  </style>
+</head>
+
+{% include "Title.html" %}
+ <div class="page-loader">
+      <div></div>
+      <div></div>
+      <div></div>
+   </div>
+   <!-- BG Start -->
+   <div class="bg-circles">
+      <div class="circle-1"></div>
+      <div class="circle-2"></div>
+      <div class="circle-3"></div>
+      <div class="circle-5"></div>
+      <div class="circle-8"></div>
+      <div style="background-color:transparent;" class="circle-4"><img style="width:100% ;height:100%;border-radius:50%;"   src="{% static 'img/KenyanBrand.jpg'%}" alt="KenyanBrand"></div>
+
+   </div>
+   <!-- BG End -->
+   <!-- Overlay Start -->
+   <div class="overlay"></div>
+   <!-- Overlay End -->
+    <body  class="bg-gray-100">
+      {% block body %}
+<div class="main hidden" >
+         <!-- Header Start -->
+
+            <div  class="container">
+                <header class="header">
+               <div style="margin-right:5px;margin-top:55px;" class="row flex-end">
+                  <button style="border:none;" type="button" class="nav-toggler">
+                  <span></span> </button>
+                  <div style="background:url({% static 'img/MboaEx ad.jpg' %});width:100%; height:100%; background-size:cover; position:cover; background-repeat:no-repeat;" class="nav">
+                     <div  style=" margin-top:8vh;background-color:rgba(0,0,0,0.2);
+        opacity:90%; border-radius:40px;backdrop-filter:blur(10px);border-top:none;border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 80px rgba(0,0,0,0.3);" class="nav-inner">
+                         <div style=" font-width:500px bold;color:#008800;margin-left:20px;margin-bottom:10px;" class="about-tabs">
+                {% include "core/navbar.html" %}
+                         </div>
+                     </div>
+
+                  </div>
+                                    </div>
+
+         </header></div> </div>
+
+         <!-- Header End -->
+         <!--Home Section Start -->
+
+    <div class="mt-5 pt-4">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        </button>
+        </div>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block extra_body %}
+    {% endblock %}
+
+    {% include "core/footer.html" %}
+{% endblock %}
+    {% include "footer.html" %}
+    {% include "scripts.html" %}
+
+    {% block extra_scripts %}
+    {% endblock extra_scripts %}
+</body>
+<div class="portfolio-popup">
+         <div class="pp-inner">
+            <div class="pp-content">
+               <div class="pp-header">
+                  <button type="button" class="btn pp-close">
+                      <i class="fas fa-times"> </i> </button>
+
+                  </div>
+                        {% include 'mpesa/LipaNaMpesa.html' %}
+               </div>
+               <div class="pp-body">
+               </div>
+
+            </div>
+         </div>
+<script src="{% static 'js/script.js' %}"></script>
+</html>

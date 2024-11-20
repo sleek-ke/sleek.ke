@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<section class="home-section align-items-center" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+                     <img  class="logo" src="{% static 'img/Mboa Academy.jpg '%}" alt="profile-img">
+                     <h1  >  Mboa-ID</h1>
+
+                  </div>
+               </div>
+
+
+
+                <center>
+                        <div  class="btn">
+                         <a style=" color:green;" href="/accounts/register" > Get Started - Your MboaID</a>
+                   </div>
+ </center>
+            </div>
+    </section>
+     {% endblock %}
+

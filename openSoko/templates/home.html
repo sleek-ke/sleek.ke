@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main style="font-family:Comic Sans Mn;margin-top:10vh;">
+<!--          <button  style="margin-top:10%;background-color:#DCECC8;border-radius:20px; width:80%; "  class="btn btn-md mb-4 my-2 font-family:Comic Sans Mn; font-weight-bold black-text p"> -->
+<!--              <a href="/ItemPost/{{user}}">Post your Products| -->
+<!--              </a>  </button> -->
+    <div class="container">
+      <!--Section: Products v.3-->
+      <section class="text-center mb-4">
+
+        <div class="row wow fadeIn">
+
+          {% for item in object_list %}
+          <div class="col-lg-3 col-md-6 mb-4">
+
+            <div class="card">
+              <div class="view overlay">
+                  <h5 style=" font-family:Comic Sans Mn;margin-top:5vh;">
+                  <strong >
+                    <a href="{{ item.get_absolute_url }}" class=" font-weight-bold black-text">{{ item.title | lower | capfirst }}
+                      <span style="font-size:50%;color:#000;" class="badge badge-pill {{ item.get_label_display }}-color">{{ item.get_label_display }}</span>
+                    </a>
+                  </strong>
+                </h5>
+                <img style="height:50vh;" src="{{ item.image.url }}" class="card-img-top">
+
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <div class="card-body text-center">
+
+
+                <h4 style="font-family:Comic Sans Mn;" class="font-weight-bold black-text">
+                  <strong>Ksh.
+                  {% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+                  </strong>
+                </h4>
+  {% include 'core/MpesaButton.html'%}
+                <h6> <a href="/plug/profile/{{item.user.slug}}"> <b style="color:#001100;">plug |</b> <b style="color:#6BBE4E;">0{{ item.user.postal_code }}</b><b class="grey-text" style="color:#905967;"> |
+              {{ item.user.city }}
+            </b></a> </h6>
+                </div>
+              </div>
+
+          </div>
+          {% endfor %}
+        </div>
+
+      </section>
+      <!--Section: Products v.3-->
+
+      <!--Pagination-->
+
+      {% if is_paginated %}
+      <nav class="d-flex justify-content-center wow fadeIn">
+        <ul class="pagination pg-blue">
+
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          {% endif %}
+
+          <li class="page-item active">
+            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+
+    </div>
+  </main>
+
+{% endblock content %}
+
+

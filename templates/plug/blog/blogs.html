@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block head_title %}{{ title }}{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<link rel="stylesheet" href="{% static 'blog/assets/css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/uikit.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/assets/css/tailwind.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<section class="home-section align-items-center" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="home-text">
+
+                  </div>
+               </div>
+                <center>
+                        <div  class="btn">
+                         <a style=" color:green;" href="/accounts/register" > Transactions History</a>
+                   </div>
+ </center>
+            </div>
+    </section>
+
+<div class="portfolio-popup">
+         <div class="pp-inner">
+            <div class="pp-content">
+               <div class="pp-header">
+                  <button type="button" class="btn pp-close">
+                      <i class="fas fa-times"> </i> </button>
+
+                  </div>
+                        {% include 'mpesa/LipaNaMpesa.html' %}
+               </div>
+               <div class="pp-body">
+               </div>
+
+            </div>
+         </div>
+
+      <!-- Portfolio Item Details Popup Start -->
+<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'blog/assets/js/tippy.all.min.js' %}"></script>
+    <script src="{% static 'blog/assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'blog/assets/js/uikit.js' %}"></script>
+    <script src="{% static 'blog/assets/js/simplebar.js' %}"></script>
+    <script src="{% static 'blog/assets/js/custom.js' %}"></script>
+
+
+     {% endblock %}
+

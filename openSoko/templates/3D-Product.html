@@ -1,0 +1,132 @@
+{% extends "original/base.html" %}
+
+{% block content %}
+<section class=" container wow fadeIn home-section align-items-center" style="background-image:;" id="home">
+            <div class="container">
+               <div class="row align-items-center">
+
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+ <div class="home-text">
+
+
+       <img  style="margin-top:5px;border-radius:24px;" src="{{ item.image.url }}" class="img-fluid" alt="">
+  </div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <a href="">
+                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
+              </a>
+            </div>
+
+            <p class="btn lead" style="background-color:#001100;">
+              {% if object.discount_price %}
+              <span class="mr-1" >
+                <del>Ksh. {{ object.price }}</del>
+              </span>
+              <span style="color:#6BBE4E;">Ksh. {{ object.discount_price }}</span>
+              {% else %}
+              <span style="color:#6BBE4E;">Ksh. {{ object.price }}</span>
+              {% endif %}
+            </p>
+
+            <p class="lead font-weight-bold">Description</p>
+
+            <p>{{ object.description }}</p>
+
+            {% comment %} <form class="d-flex justify-content-left">
+              <!-- Default input -->
+              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+              <button class="btn btn-primary btn-md my-0 p" type="submit">
+                Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+            </form> {% endcomment %}
+
+            <a href="{{ object.get_add_to_cart_url }}"  style="color:#fff;background-color:#6BBE4E;" class="bty  btn-md my-0 p">
+              Add to cart
+              <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
+            <a href="{{ object.get_remove_from_cart_url }}" style="color:#fff;" class="btn btn-danger btn-md my-0 p">
+              Remove from cart
+            </a>
+
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <hr style="height:1px;">
+
+      <!--Grid row-->
+      <div class="row d-flex justify-content-center wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-md-6 text-center">
+
+            <h4 class="my-4 h4">Additional information <br> <b>Kagua mali Bro...</b></h4>
+
+          <p class="btn">3D View</p>
+          <p class="btn">From</p>
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="  row wow fadeIn " style="border:none;">
+
+        <!--Grid column-->
+        <div class=" col-lg-4 col-md-12 mb-4">
+
+          <img src="{{ item.image.url }}"   style="border:none;border-radius:20px;" class="img-fluid bty" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="{{ item.image.url }}"  style="border:none;border-radius:20px;" class="img-fluid bty " alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="{{ item.image.url }}"  style="border-radius:20px;border:none;" class="img-fluid bty" alt="">
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+                  </div>
+               </div>
+</section>
+{% endblock content %}

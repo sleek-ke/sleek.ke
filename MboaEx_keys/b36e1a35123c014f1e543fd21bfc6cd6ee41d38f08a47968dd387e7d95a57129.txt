@@ -1,0 +1,2 @@
+Private key: b36e1a35123c014f1e543fd21bfc6cd6ee41d38f08a47968dd387e7d95a57129
+Wallet address / Public key: uLpdlpgv/oHJ3N5fW8tzGZ8rW6Z0XUT6VeENdqkKuWxQjKLTFZjYoJKrdz/QHRgUltLlFU0ylz28ppLmjuyaSA==

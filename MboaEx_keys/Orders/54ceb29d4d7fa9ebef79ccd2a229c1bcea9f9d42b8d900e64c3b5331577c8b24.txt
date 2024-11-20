@@ -1,0 +1,2 @@
+/Hey User:<django.db.models.fields.related.ForeignKey>/Wallet Address Public Key:DN8Cerj6c/7MdwGEH/tAf0rt3guBjo9at7e3/LqIsqvmoj2UGi2HsrKN17WjZKAqJjJV0TyUOeNipmJ3N8VujA== 
+Order Confirmation  Secret(Don't Share or disclose This to anyone.) / Private Key:54ceb29d4d7fa9ebef79ccd2a229c1bcea9f9d42b8d900e64c3b5331577c8b24 

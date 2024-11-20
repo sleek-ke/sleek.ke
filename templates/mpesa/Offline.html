@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+{% block head_title %}{{ title }}{% endblock %}
+
+{% block content %}
+{%load static%}
+
+<section class="home-section align-items-center" style="background-color:rgba(0,0,0,0.2);
+     backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);z-index:10;display:flex;box-shadow:40px 40px 40px 100px rgba(0,0,0,0.3);" id="home">
+            <div class="container" >
+               <div class="row align-items-center">
+                     <div class="home-text">
+            <div   style="box-shadow:2px 4px 50px #001100;border-radius:10px;margin-bottom:20px;" class="portfolio-item-thumbnail">
+                 <img style=" opacity:40%; margin-top:5px; position:center; box-shadow: 34px 8px 80px green; width:60px; height:60px;border-radius: 100%;" src="{{ user.address.profileimg.url }} " >
+                 <center>
+             <div class=" flex  bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-2"  style="margin-bottom:2px;"  role="alert">
+                 <p style=" border-color:transparent; background-color:#ffffff00; color:#001100;"><strong > <br>Hey {{user.first_name}}, <br>  Offline transactions </strong> <br>
+                     <hr style="height:1px;">
+          <b style="color:#001100;">  Lipa Na Mpesa  Buy Goods And Services  Till Number </b>
+             </div>
+                 </center>
+             </div>
+                 <a href="/setting">
+                     <center>
+
+                     </center>
+                         <h3  style="background-color:#6BBE4E; width:100%;color:#f8f9f0; text-align:center;" class="btn ">    Account  </h3>
+</a>
+                            <a href="/mpesa/others">
+                     <center>
+
+                     </center>
+                         <h3  style="#ffffff00 background-color:;border:solid 1px #6BBE4E; width:100%;color:#000; text-align:center;" class="btn ">    + Other  </h3>
+</a>
+</div>
+        </div>
+
+                <center>
+
+                    <div class="bty home-text" style=" color:green; text-align:center; border: 1px solid #001100; width:85%; height:45vh;box-shadow:2px 4px 50px #001100; ">
+                            <img style=" opacity:200%; box-shadow: 10px 0px 34px 50px #fff;margin-top:1px;width:250px;height:150px;border-radius:7px;" src="{% static 'img/LipaNaMpesa.png' %}" alt="profile-img">
+<center>
+                                 <div style="padding:1%; margin-top:2px;display:flex;flex-direction:row; border: 1px solid #008800;">
+                        <div style="margin-left:-10px; height:8vh;width:20%; border: 3px solid #001100;"><p style="font-size:300%; font-weight:500px;">8</p> </div>
+                        <div style=" height:8vh;width:20%; border: 3px solid #001100;"><p style="font-size:300%; font-weight:500px;">5</p> </div>
+                        <div style=" height:8vh;width:20%; border: 3px solid #001100;"> <p style="font-size:300%; font-weight:500px;">6</p></div>
+                        <div style=" height:8vh;width:20%; border: 3px solid #001100;"> <p style="font-size:300%; font-weight:500px;">6</p></div>
+                        <div style=" height:8vh;width:20%; border: 3px solid #001100;"><p style="font-size:300%; font-weight:500px;">2</p> </div>
+                        <div style=" height:8vh;width:20%; border: 3px solid #001100;"><p style="font-size:300%; font-weight:500px;">1</p> </div>
+                        <div style=" height:8vh;width:20%; border: 3px solid #001100;"> <p style="font-size:300%; font-weight:500px;">0</p></div>
+                                 </div>
+</center>
+
+                      <p style="margin-top:20px; font-size:100%;"> Displayed Name: Mboa Technologies  </p>
+                    </div>
+
+                    <a  class="bty tab-item" style="margin-bottom:5px; margin-top:30px;color:green;width:80%;" href="{% url 'Query_stk_push' %}" type="submit" > Support </a>
+                    <a  class="bty tab-item" style="margin-bottom:20px; margin-top:4px;color:#001100;width:80%;" href="{% url 'Query_stk_push' %}" type="submit" > Be a merchant </a>
+
+ </center>
+                  </div>
+    </section>
+     {% endblock %}
+
