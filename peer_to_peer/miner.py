@@ -250,9 +250,9 @@ def validate_signature(public_key, signature, message):
 
 def welcome_msg():
     print("""       =========================================\n
-       +mboa P2P Blockchain Transactions\n
+       sleek_main_hub peer_to_peer Blockchain Transactions\n
        =========================================\n\n
-        Easy.Secure.Fast. Simple Online P2P Transactions for the +mboa Platforms. \n\n\n""")
+        Easy.Secure.Fast. Simple Online peer_to_peer Transactions for the sleek_main_hub Platforms. \n\n\n""")
 
 
 if __name__ == '__main__':

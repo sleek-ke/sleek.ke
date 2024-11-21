@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', '+mboa.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sleek_main_hub.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

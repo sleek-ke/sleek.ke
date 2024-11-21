@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('FX_Profile', '0001_initial'),
+        ('sleek_profile', '0001_initial'),
         ('accounts', '0001_initial'),
     ]
 

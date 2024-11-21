@@ -2,7 +2,7 @@ import random
 import string
 
 import stripe
-#import segno
+import segno
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -16,7 +16,7 @@ from django.views.generic import ListView, DetailView, View, TemplateView, Redir
 from .forms import CheckoutForm, CouponForm, RefundForm, ItemRegistrationForm
 from .models import Item, OrderItem, Order, Payment, Coupon, Refund
 from accounts.models import UserAddress
-from FX_Profile.forms import PaymentForm
+from sleek_profile.forms import PaymentForm
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 

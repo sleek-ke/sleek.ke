@@ -1,5 +1,5 @@
 from django import template
-from FX_Profile.models import Order
+from sleek_profile.models import Order
 
 register = template.Library()
 

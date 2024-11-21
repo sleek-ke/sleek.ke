@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('FX_Profile', '0002_initial'),
+        ('sleek_profile', '0002_initial'),
         ('accounts', '0007_alter_official_cardy_cardy_type_and_more'),
     ]
 

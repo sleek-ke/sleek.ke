@@ -66,7 +66,7 @@ def stk_paybill(request):
 			# amount = form.cleaned_data['amount']
 			command_id = 4
 			account_reference = form.cleaned_data['account_reference']
-			transaction_desc = '+mboa Account Deposit'
+			transaction_desc = 'sleek_main_hub Account Deposit'
 			callback_url = stk_push_callback_url
 			response = cl.stk_push_Paybill(phone_number, amount, account_reference, transaction_desc, callback_url, command_id)
 			data = response
@@ -87,8 +87,8 @@ def stk(request):
 			phone_number = form.cleaned_data['phone_number']
 			amount = form.cleaned_data['amount']
 			# amount = form.cleaned_data['amount']
-			account_reference = '+mboa Account'
-			transaction_desc = '+mboa Account Deposit'
+			account_reference = 'sleek_main_hub Account'
+			transaction_desc = 'sleek_main_hub Account Deposit'
 			callback_url = stk_push_callback_url
 			response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
 			data = response
@@ -127,8 +127,8 @@ def Ni_Push(request):
 	phone_number = '0708534184'
 	amount = '20'
 	# amount = form.cleaned_data['amount']
-	account_reference = '+mboa Account'
-	transaction_desc = '+mboa Account Deposit'
+	account_reference = 'sleek_main_hub Account'
+	transaction_desc = 'sleek_main_hub Account Deposit'
 	callback_url = stk_push_callback_url
 	response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
 	print(response)
@@ -139,8 +139,8 @@ def stk_push_success(request):
 	phone_number = mpesa_config('LNM_PHONE_NUMBER')
 	amount = 1
 	# amount = form.cleaned_data['amount']
-	account_reference = '+mboa'
-	transaction_desc = '+mboa Account Deposit'
+	account_reference = 'sleek_main_hub'
+	transaction_desc = 'sleek_main_hub Account Deposit'
 	callback_url = stk_push_callback_url
 	r = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
 	return JsonResponse(r.response_description, r, safe=False)

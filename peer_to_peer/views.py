@@ -18,24 +18,24 @@ class P2P_DetailView(DetailView):
 
 def display_profiles(self, request):
     profile = self.SendMoney.request.user
-    return render(request, 'P2P/dashboard.html', {'profile': profile})
+    return render(request, 'peer_to_peer/dashboard.html', {'profile': profile})
 
 def P2P_receive(request):
     qr = helpers.make_wifi(ssid='Mboa Technology', password='12834048%Mboa', security='WPA2 PSK')
     qr.save('Mboa-wifi.png', dark='green', light='white')
     
-    return render(request, 'P2P/receive.html', {'qr': qr})
+    return render(request, 'peer_to_peer/receive.html', {'qr': qr})
 
 
 def P2P_send(request):
-    return render(request, 'P2P/send.html')
+    return render(request, 'peer_to_peer/send.html')
 
 
 def P2P_Bots(request):
     return render(request, 'fx/Bots.html')
 
 def P2P(request):
-    return render(request, 'P2P/dashboard.html')
+    return render(request, 'peer_to_peer/dashboard.html')
 
 @login_required(login_url='/accounts/login')
 def P2P_dev(request):
@@ -66,5 +66,5 @@ def plug_search(request):
 			username_profile_list.append(profile_lists)
 		
 		username_profile_list = list(chain(*username_profile_list))
-	return render(request, 'P2P/dashboard.html',
+	return render(request, 'peer_to_peer/dashboard.html',
 	              {'user_profile': user_profile, 'username_profile_list': username_profile_list})

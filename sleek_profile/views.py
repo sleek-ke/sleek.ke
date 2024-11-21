@@ -62,8 +62,8 @@ def stk_Push(request):
             phone_number = form.cleaned_data['phone_number']
             amount = form.cleaned_data['amount']
             # amount = form.cleaned_data['amount']
-            account_reference = '+mboa Account'
-            transaction_desc = '+mboa Account Deposit'
+            account_reference = 'sleek_main_hub Account'
+            transaction_desc = 'sleek_main_hub Account Deposit'
             callback_url = stk_push_callback_url
             response = cl.stk_push(phone_number, amount, account_reference, transaction_desc, callback_url)
             filename = 'MpesaStk' + ".txt"

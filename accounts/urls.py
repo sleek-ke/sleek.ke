@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import UserRegistrationView, LogoutView, UserLoginView, Sure_kuleft,ProfileDetailView, CardyView, CardyCreateMixin
 from mpesa.views import stk
-from FX_Profile import views
+from sleek_profile import views
 
 
 app_name = 'accounts'
