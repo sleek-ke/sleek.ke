@@ -40,7 +40,14 @@ ALLOWED_HOSTS = ["*"]
 #     "ACCESS_TOKEN_LIFETIME":timedelta(minutes=30),
 #     "REFRESH_TOKEN_LIFETIME":timedelta(days=1),
 # }
-#
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'https://localhost:8000',
+	'https://obscure-space-fishstick-97jrrww6v4grh7rjj-8000.app.github.dev/',
+]
+
 
 
 INSTALLED_APPS = [
