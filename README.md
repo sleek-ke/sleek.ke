@@ -1,7 +1,7 @@
 # Sleek.Ke
  A Product Of Mboa Technologies
-Lipa Na Mpesa Till Number. 8566210
-......................................
+
+
 Sleek.Ke is a Django-based web application by Mboa Technologies, integrating services like M-Pesa and Africa's Talking. It offers modules for financial transactions, peer-to-peer services, user profile management, and more, ensuring a seamless experience for end-users.
 
 
@@ -43,29 +43,29 @@ Installation and Setup
 
 1. Clone the Repository
 
-git clone https://github.com/sleek-ke/sleek.ke.git
-cd sleek.ke
+```git clone https://github.com/sleek-ke/sleek.ke.git```
+```cd sleek.ke```
 
 2. Create a Virtual Environment
 
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
+```python -m venv venv```
+```source venv/bin/activate  # Linux/macOS```
+```venv\Scripts\activate     # Windows```
 
 3. Install Dependencies
 
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 4. Configure Environment Variables
 
 1. Copy the example .env file:
 
-cp .env.example .env
+```cp .env.example .env```
 
 
 2. Update the .env file with:
 
-SECRET_KEY: Generate a new key using python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())".
+```SECRET_KEY: Generate a new key using python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())".```
 
 API keys and configurations for M-Pesa and Africa's Talking.
 
@@ -76,11 +76,11 @@ API keys and configurations for M-Pesa and Africa's Talking.
 
 Run migrations to set up the database schema:
 
-python manage.py makemigrations
-python manage.py migrate
+```python manage.py makemigrations```
+```python manage.py migrate```
 
 Example manage.py Script:
-
+```
 #!/usr/bin/env python
 import os
 import sys
@@ -102,12 +102,16 @@ if __name__ == "__main__":
 If there is a fixtures file, load it:
 
 python manage.py loaddata initial_data.json
+```
 
 7. Run the Development Server
-
+```
 python manage.py runserver
+```
 
-Visit http://127.0.0.1:8000/ in your browser.
+Visit http://127.0.0.1:8000/ you can as well use 
+your other free ports
+in your browser.
 
 
 ---
@@ -115,10 +119,10 @@ Visit http://127.0.0.1:8000/ in your browser.
 Running Tests
 
 To run the test suite:
-
+```
 python manage.py test
 
-
+```
 ---
 
 Deployment
