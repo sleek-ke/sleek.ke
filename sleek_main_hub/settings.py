@@ -185,16 +185,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-###############################=================M-PESA DARAJA APIS CREDENTIALS=================###############################33
-MPESA_ENVIRONMENT = config('MPESA_ENVIRONMENT')
-B2C_PHONE_NUMBER = config('B2C_PHONE_NUMBER')
-MPESA_CONSUMER_KEY_B = config('MPESA_CONSUMER_KEY')
-MPESA_CONSUMER_SECRET_B = config('MPESA_CONSUMER_SECRET')
-MPESA_SHORTCODE_TYPE_B = config('MPESA_SHORTCODE_TYPE')
-MPESA_SHORTCODE_B = config('MPESA_SHORTCODE')
-MPESA_EXPRESS_SHORTCODE_B = config('MPESA_EXPRESS_SHORTCODE')
-MY_MPESA_ACCOUNT_NUMBER_B = config('MY_MPESA_ACCOUNT_NUMBER')
-MPESA_PASSKEY_B = config('MPESA_PASSKEY')
+###############################=================M-PESA DARAJA APIS
 #######################################Tilll Number################################################
 MPESA_CONSUMER_KEY = config('MPESA_CONSUMER_KEY')
 MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET')
