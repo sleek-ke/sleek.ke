@@ -41,8 +41,8 @@ ALLOWED_HOSTS = ["*"]
 #     "REFRESH_TOKEN_LIFETIME":timedelta(days=1),
 # }
 
-
 CSRF_TRUSTED_ORIGINS = [
+    '*'
     'http://localhost:8000',
     'https://localhost:8000',
 	'https://obscure-space-fishstick-97jrrww6v4grh7rjj-8000.app.github.dev/',
@@ -185,7 +185,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-###############################=================M-PESA DARAJA APIS
+###############################=================M-PESA DARAJA APIS CREDENTIALS=================###############################33
+MPESA_ENVIRONMENT = config('MPESA_ENVIRONMENT')
+B2C_PHONE_NUMBER = config('B2C_PHONE_NUMBER')
+MPESA_CONSUMER_KEY_B = config('MPESA_CONSUMER_KEY_B')
+MPESA_CONSUMER_SECRET_B = config('MPESA_CONSUMER_SECRET_B')
+MPESA_SHORTCODE_TYPE_B = config('MPESA_SHORTCODE_TYPE_B')
+MPESA_SHORTCODE_B = config('MPESA_SHORTCODE_B')
+MPESA_EXPRESS_SHORTCODE_B = config('MPESA_EXPRESS_SHORTCODE_B')
+MY_MPESA_ACCOUNT_NUMBER_B = config('MY_MPESA_ACCOUNT_NUMBER_B')
+MPESA_PASSKEY_B = config('MPESA_PASSKEY_B')
 #######################################Tilll Number################################################
 MPESA_CONSUMER_KEY = config('MPESA_CONSUMER_KEY')
 MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET')
@@ -243,3 +252,4 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = TIME_ZONE
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
