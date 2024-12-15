@@ -185,18 +185,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-###############################=================M-PESA DARAJA APIS CREDENTIALS=================###############################33
-#MPESA_ENVIRONMENT = config('MPESA_ENVIRONMENT')
-#
-#B2C_PHONE_NUMBER = config('B2C_PHONE_NUMBER')
-#MPESA_CONSUMER_KEY_B = config('MPESA_CONSUMER_KEY_B')
-#MPESA_CONSUMER_SECRET_B = config('MPESA_CONSUMER_SECRET_B')
-#MPESA_SHORTCODE_TYPE_B = config('MPESA_SHORTCODE_TYPE_B')
-#MPESA_SHORTCODE_B = config('MPESA_SHORTCODE_B')
-#MPESA_EXPRESS_SHORTCODE_B = config('MPESA_EXPRESS_SHORTCODE_B')
-#MY_MPESA_ACCOUNT_NUMBER_B = config('MY_MPESA_ACCOUNT_NUMBER_B')
-#MPESA_PASSKEY_B = config('MPESA_PASSKEY_B')
-#######################################Tilll Number################################################
+###############################=================M-PESA DARAJA APIS CREDENTIALS=================###############################
 MPESA_CONSUMER_KEY = config('MPESA_CONSUMER_KEY')
 MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET')
 MPESA_SHORTCODE_TYPE = config('MPESA_SHORTCODE_TYPE')
@@ -208,23 +197,6 @@ MPESA_INITIATOR_USERNAME = config('MPESA_INITIATOR_USERNAME')
 MPESA_INITIATOR_SECURITY_CREDENTIAL = config('MPESA_INITIATOR_SECURITY_CREDENTIAL')
 LNM_PHONE_NUMBER = config('LNM_PHONE_NUMBER')
 MPESA_EXPRESS_SHORTCODE = config('MPESA_EXPRESS_SHORTCODE')
-
-#################################Client Data Lipa Na M-Pesa###########################################
-
-# MPESA_INITIATOR_USERNAME = config('MPESA_INITIATOR_USERNAME_Client')
-# MPESA_SHORTCODE_TYPE = config('MPESA_SHORTCODE_TYPE_ClientTill' )
-# MPESA_SHORTCODE_TYPE = config('MPESA_SHORTCODE_TYPE_ClientPayBill ')
-# MPESA_CONSUMER_KEY = config("MPESA_CONSUMER_KEY_Client")
-# MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET_Client')
-# MPESA_SHORTCODE = config('MPESA_SHORTCODE_Client')
-# MPESA_PASSKEY = config('MPESA_PASSKEY_Client')
-# MPESA_INITIATOR_SECURITY_CREDENTIAL = config('MPESA_INITIATOR_SECURITY_CREDENTIAL_Client')
-# B2C_PHONE_NUMBER_ = config('B2C_PHONE_NUMBER_Client')
-# MBOAPAY_Client_Email = config('MBOAPAY_Client_Email')
-
-#################################Client Data Lipa Na M-Pesa###########################################
-
-
 
 
 AT_YOUR_USERNAME = config('AT_YOUR_USERNAME')
